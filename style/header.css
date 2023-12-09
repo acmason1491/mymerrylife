@@ -1,0 +1,51 @@
+.header {
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  border-top-color: white;
+  border-left-color: white;
+  border-right-color: white;
+  background-color: white;
+  border-bottom-width: 1px;
+  border-style: solid;
+  border-bottom-color: rgb(228, 228, 228);
+}
+.title {
+  width: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#logo {
+  width: 50px;
+  height: 50px;
+}
+#webName {
+  margin-left: 20px;
+  font-size: 30px;
+}
+.menu {
+  width: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 50px;
+}
+.menu_row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.menu_image {
+  width: 20px;
+  margin-right: 10px;
+}

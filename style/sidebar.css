@@ -1,0 +1,25 @@
+.sidebar {
+  position: fixed;
+  top: 70px;
+  bottom: 0;
+  left: 0;
+  width: 200px;
+  background-color: white;
+  z-index: 200;
+  padding-top: 5px;
+}
+.project {
+  background-color: gray;
+  margin-left: 10px;
+  width: 180px;
+  height: 180px;
+  
+}
+#free_text {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+.project {
+  margin-bottom: 10px;
+}
