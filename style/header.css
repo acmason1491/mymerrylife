@@ -17,25 +17,25 @@
   border-bottom-color: rgb(228, 228, 228);
 }
 .title {
-  width: 400px;
+  width: 50%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
-#logo {
+.logo {
   width: 50px;
   height: 50px;
 }
-#webName {
-  margin-left: 20px;
+.webName {
+  margin-left: 5%;
   font-size: 30px;
 }
 .menu {
-  width: 400px;
+  width: 50%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: right;
   align-items: center;
   margin-right: 50px;
 }
@@ -44,8 +44,67 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-right: 20px;
+  cursor: pointer;
 }
-.menu_image {
+.hamburger{
+  display: none;
+}
+.menu_icon {
   width: 20px;
   margin-right: 10px;
+}
+.menu_text {
+  font-size: 14px;
+}
+
+@media (max-width: 750px) {
+  
+  .title {
+    width: 85%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    justify-content: center;
+  }
+  .menu {
+    width: 15%;
+    justify-content: left;
+  }
+  .menu_row {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+    padding-left: 50px;
+  }  
+  .webName {
+    margin-left: 10px;
+    font-size: 14px;
+  }
+  .menu_text {
+    font-size: 8px;
+  }
+  .menu_image {
+    margin-right: 4px;
+  }
+  .project {
+    background-color: rgb(241, 207, 52);
+    margin-left: 10px;
+    width: 100px;
+    height: 100px;
+    
+  }
+}
+@media (min-width: 751px) and (max-width: 999px) {
+  .webName {
+    margin-left: 10px;
+    font-size: 18px;
+  }  
+  .menu_text {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 1000px) {
+
 }

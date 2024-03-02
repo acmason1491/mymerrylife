@@ -1,45 +1,250 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Noto+Sans+TC:wght@200;500;700&family=Open+Sans:wght@300&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <title>架設網站學習部落</title>
-  <link rel="stylesheet" href="./style/index.css">
-  <link rel="stylesheet" href="./style/header.css">
-  <link rel="stylesheet" href="./style/sidebar.css">
-</head>
-<body>
-  <div class="header">
-    <div class="title">
-      <img id="logo" src="./image/logo.png">
-      <span id="webName">WP 網站學習部落</span>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="這是一個提供免費教學課程的網站，主要教導新手如何快速的自行架設 WordPress 網站。"
+    />
+    <meta
+      name="keywords"
+      content="WordPress, blog, WordPress 教學, WordPress 基礎教學, WordPress 入門指南, 建立 WordPress 網站教學, WordPress 主題設計教學, WordPress 外掛程式教學, WordPress 網站管理教學, WordPress 教學視頻, WordPress 免費教學資源, WordPress 教學部落格, WordPress 新手教學, WordPress 線上課程, WordPress 網站設計入門, WordPress SEO 教學, Thrive Suite 教學, designrr 教學, 建立電子書, 快速建立電子書, 公司網站教學, 購物網站教學"
+    />
+    <!-- Control the behavior of search engine crawling and indexing -->
+    <meta name="robots" content="index,follow" />
+    <!-- All Search Engines -->
+    <meta name="googlebot" content="index,follow" />
+    <!-- Google Specific -->
+    <meta name="author" content="Mason Hou" />
+    <!-- 定義所有<a> 標籤都是開啟新視窗 -->
+    <!-- <base target="_blank"> -->
+
+    <title>架設網站學習部落</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Noto+Sans+TC:wght@200;500;700&family=Open+Sans:wght@300&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="./image/favicon.ico.png" />
+    <link rel="stylesheet" href="./style/index.css" />
+    <link rel="stylesheet" href="./style/header.css" />
+    <link rel="stylesheet" href="./style/sidebar.css" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="title">
+        <img class="logo" src="./image/logo.png" />
+        <span class="webName">WP 網站學習部落</span>
+      </div>
+      <div class="menu">
+        <div class="menu_row">
+          <img class="menu_icon" src="./icon/icons8-article-50.png" />
+          <span class="menu_text">精選文章</span>
+        </div>
+        <div class="menu_row">
+          <img class="menu_icon" src="./icon/icons8-email-64.png" />
+          <span class="menu_text">聯絡我們</span>
+        </div>
+        <div class="menu_row">
+          <img class="menu_icon" src="./icon/icons8-team-48.png" />
+          <span class="menu_text">關於我們</span>
+        </div>
+        <div class="hamburger">
+          <img class="menu_icon" src="./icon/icons8-hamburger-30.png" alt="" />
+        </div>
+      </div>
     </div>
-    <div class="menu">
-      <div class="menu_row">
-        <img class="menu_image" src="./icon/icons8-article-50.png">
-        <span>精選文章</span>
+
+    <div class="question">
+      <div class="question_left">
+        <img
+          class="question_image"
+          src="./image/新手架設網站常見問題.jpg"
+          alt="新手架設網站常見問題"
+        />
       </div>
-      <div class="menu_row">
-        <img class="menu_image" src="./icon/icons8-email-64.png">
-        <span>聯絡我們</span>
-      </div>
-      <div class="menu_row">
-        <img class="menu_image" src="./icon/icons8-team-48.png">
-        <span>關於我們</span>
+
+      <div class="question_right">
+        <div class="question_right_title">
+          <p id="question_titile">新手架設網站常見問題</p>
+        </div>
+        <div class="question_right_no1">
+          <div class="question_right_text">
+            <div>
+              <p>我是新手，不懂任何電腦程式語言，可以自行架設網站嗎?</p>
+            </div>
+            <div class="icon js-icon1">
+              <img id="plus_icon" src="./icon/icons8-plus-48.png" />
+            </div>
+          </div>
+        </div>
+        <div class="answerOne"></div>
+
+        <div class="question_right_no1">
+          <div class="question_right_text">
+            <div>
+              <p>自行架設網站需要花很多錢嗎?</p>
+            </div>
+            <div class="icon js-icon2">
+              <img id="plus_icon" src="./icon/icons8-plus-48.png" />
+            </div>
+          </div>
+        </div>
+        <div class="answerTwo"></div>
+
+        <div class="question_right_no1">
+          <div class="question_right_text">
+            <div>
+              <p>我需要什麼樣的工具來架設網站？</p>
+            </div>
+            <div class="icon js-icon3">
+              <img id="plus_icon" src="./icon/icons8-plus-48.png" />
+            </div>
+          </div>
+        </div>
+        <div class="answerThree"></div>
+        <div class="question_right_no1">
+          <div class="question_right_text">
+            <div>
+              <p>網路資訊雜亂無章，搞得我不知所措，不知道從何學起？</p>
+            </div>
+            <div class="icon js-icon4">
+              <img id="plus_icon" src="./icon/icons8-plus-48.png" />
+            </div>
+          </div>
+        </div>
+        <div class="answerFour"></div>
       </div>
     </div>
-  </div>
-  <div class="sidebar">
-    <div id="free_text">免費課程</div>
-    <div class="project"></div>
-    <div class="project"></div>
-    <div class="project"></div>
-    <div class="project"></div>
-  </div>
-  
-  <script src="./javascript/index.js"></script>
-</body>
+    <div class="welcome">
+      <p id="welcome_text">歡迎來到我們的教學網站</p>
+      <video class="welcome_video" src="./video/welcome.mp4" controls></video>
+    </div>
+    <div class="welcome_description">
+      <p class="welcome_description_text">
+        我們網站成立目的主要幫助新手學習如何<br /><span
+          class="welcome_highlight"
+          >架設自己的 WordPress 網站</span
+        ><br />
+
+        我們提供了實用且容易理解的<span class="welcome_highlight">免費教學</span
+        ><br />
+
+        幫助你在最短的時間內學會如何建立並管理自己的網站<br />
+
+        如果你是 <span class="welcome_highlight">WordPress 新手</span><br />
+
+        或者正在尋找一個有用的資源<br />來幫助你學習如何架設自己的網站<br />
+
+        那麼你來對了地方<br />
+
+        跟著我們的教學步驟一步一步學習，很快你就可以擁有自己的 WordPress
+        網站了！
+      </p>
+    </div>
+    <div class="blog-title">
+      <p>個人網站或部落格 (Blog)</p>
+    </div>
+    <div class="project_blog">
+      <div class="project-left">
+        <p class="projectTitle">如何架設屬於自己的網站或部落格？</p>
+        <ul>
+          <li>創建屬於自己的網站或部落格並不像許多人想像的那麼複雜!</li>
+          <br />
+          <li>你不需要懂得任何程式語言或電腦程式!!</li>
+          <br />
+          <li>只要你會上網、會打字、懂得如何在網上訂購披薩即可!!!</li>
+          <br />
+          <li>完全免費教程、新手快速入門</li>
+        </ul>
+      </div>
+      <div class="project-right">
+        <img
+          class="blogImage"
+          src="./image/blog.jpg"
+          alt="架設屬於自己的網站或部落格"
+        />
+      </div>
+    </div>
+    <div class="buttonOne">
+      <button class="project-button">進入課程</button>
+    </div>
+
+    <div class="blog-title">
+      <p>公司網站</p>
+    </div>
+    <div class="project_blog">
+      <div class="project-left projectLeft">
+        <p class="projectTitle">還在花高額費用請人設計公司網站嗎?</p>
+        <p>
+          本免費教學網站主要提供給想架設網站公司、團體組織<br /><br />
+
+          不需有太複雜的流程，只要按照步驟，輕輕鬆鬆建構一個屬於自己的專業網站
+        </p>
+      </div>
+
+      <div class="project-right" id="projectRight1">
+        <img
+          class="blogImage"
+          src="./image/company-website-image.jpg"
+          alt="建立一個公司網站"
+        />
+      </div>
+    </div>
+    <div class="buttonOne">
+      <button class="project-button">進入課程</button>
+    </div>
+
+    <div class="blog-title">
+      <p>購物網站</p>
+    </div>
+    <div class="project_blog">
+      <div class="project-left projectLeft2">
+        <p class="projectTitle">想建立一個自己的購物網站，卻不知從何開始？</p>
+        <p>
+          本免費教學網站提供你免費、快速入門教程<br /><br />
+
+          照著教程步驟、一步一步建立屬於自己的網站
+        </p>
+      </div>
+
+      <div class="project-right" id="projectRight2">
+        <img
+          class="blogImage"
+          src="./image/建立一個自己的購物網站.jpg"
+          alt="建立一個自己的購物網站"
+        />
+      </div>
+    </div>
+    <div class="buttonOne">
+      <button class="project-button">進入課程</button>
+    </div>
+    <div class="titleOfPost">
+      <p style="text-align: center">最新文章</p>
+    </div>
+    <div class="postShow">
+      <div class="postImage">
+        <img
+          class="show_image"
+          src="./image/如何建立一個可賺錢的部落格 (Blog) – 獲取個人的被動收入.jpg"
+          alt="建立一個可賺錢的部落格"
+        />
+        <p>如何建立一個可賺錢的部落格 (Blog) – 獲取個人的被動收入</p>
+      </div>
+      <p class="lorem">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem
+        voluptates quam sapiente dolorem dolore. Doloremque sequi eaque laborum,
+        impedit ex quod. Non minus praesentium libero tenetur. Error deleniti
+        sequi cum.
+      </p>
+      <div class="postImage"></div>
+      <div class="postImage"></div>
+      <div class="postImage"></div>
+      <div class="postImage"></div>
+    </div>
+
+    <script type="module" src="./javascript/index.js"></script>
+  </body>
 </html>

@@ -16,10 +16,28 @@
   
 }
 #free_text {
+  font-size: 16px;
   text-align: center;
   margin-top: 40px;
   margin-bottom: 10px;
 }
 .project {
   margin-bottom: 10px;
+}
+@media (max-width: 375px) {
+.sidebar {
+  visibility: hidden;
+}
+}
+@media (max-width: 750px) {
+  .project {
+    background-color: rgb(241, 207, 52);
+    margin-left: 10px;
+    width: 100px;
+    height: 100px;
+    
+  }
+  .sidebar {
+    width: 120px;
+  }
 }
