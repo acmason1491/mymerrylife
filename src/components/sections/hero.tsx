@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { assetPath } from "@/lib/utils";
 
 export function Hero() {
   return (
@@ -56,42 +57,12 @@ export function Hero() {
           </div>
 
           <div className="relative hidden lg:block">
-            <div className="relative rounded-2xl bg-gradient-to-br from-blue-600 to-blue-800 p-1 shadow-2xl">
-              <div className="rounded-xl bg-white p-6">
-                <div className="mb-4 flex items-center justify-between">
-                  <div className="flex -space-x-2">
-                    {[1, 2, 3].map((i) => (
-                      <div key={i} className="h-8 w-8 rounded-full border-2 border-white bg-slate-200" />
-                    ))}
-                  </div>
-                  <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-medium text-emerald-700">
-                    Live 教學中
-                  </span>
-                </div>
-                <div className="space-y-3">
-                  {[
-                    { label: "WordPress 基礎設定", progress: 85, color: "bg-blue-600" },
-                    { label: "WooCommerce 購物車", progress: 62, color: "bg-emerald-500" },
-                    { label: "SEO 搜尋引擎優化", progress: 41, color: "bg-amber-500" },
-                  ].map((item) => (
-                    <div key={item.label}>
-                      <div className="mb-1 flex justify-between text-sm">
-                        <span className="text-slate-700 font-medium">{item.label}</span>
-                        <span className="text-slate-400">{item.progress}%</span>
-                      </div>
-                      <div className="h-2 rounded-full bg-slate-100">
-                        <div
-                          className={`h-2 rounded-full ${item.color} transition-all duration-500`}
-                          style={{ width: `${item.progress}%` }}
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="absolute -bottom-4 -left-4 -z-10 h-72 w-72 rounded-full bg-blue-100 opacity-50 blur-3xl" />
-            <div className="absolute -top-4 -right-4 -z-10 h-72 w-72 rounded-full bg-emerald-100 opacity-50 blur-3xl" />
+            <img
+              src={assetPath("/images/hero/hero-illustration.svg")}
+              alt="網站架設教學插圖"
+              className="w-full h-auto"
+              loading="eager"
+            />
           </div>
         </div>
       </div>

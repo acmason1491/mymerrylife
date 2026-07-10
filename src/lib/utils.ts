@@ -34,8 +34,13 @@ export function truncate(text: string, length: number): string {
 }
 
 export function absoluteUrl(path: string): string {
-  const base = process.env.NEXT_PUBLIC_BASE_URL || "https://acmason1491.github.io/mymerrylife";
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://acmason1491.github.io/mymerrylife";
   return `${base}${path.startsWith("/") ? path : `/${path}`}`;
+}
+
+export function assetPath(path: string): string {
+  const basePath = "/mymerrylife";
+  return `${basePath}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
 export function getReadingTime(content: string): number {
