@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My Merry Life</title>
+    <link>https://acmason1491.github.io/mymerrylife</link>
+    <description>免費 WordPress 網站架設教學平台</description>
+    <language>zh-TW</language>
+    <atom:link href="https://acmason1491.github.io/mymerrylife/rss.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>2026-07-10T00:00:00Z</lastBuildDate>
+  </channel>
+</rss>

@@ -1,10 +1,12 @@
-import { Hero } from "@/components/sections/hero";
-import { FeaturedPosts } from "@/components/sections/featured-posts";
-import { FeaturedCourses } from "@/components/sections/featured-courses";
-import { Testimonials } from "@/components/sections/testimonials";
-import { FaqSection } from "@/components/sections/faq-section";
-import { Newsletter } from "@/components/sections/newsletter";
-import type { PostListItem, CourseListItem } from "@/types";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import { Breadcrumb } from "@/components/layout/breadcrumb";
+import { PostCard } from "@/components/shared/post-card";
+import type { PostListItem } from "@/types";
+import { CATEGORIES } from "@/lib/constants";
+
+interface Props { params: Promise<{ slug: string }> }
 
 const MOCK_POSTS: PostListItem[] = [
   { id: "1", title: "WordPress 基礎設定完整指南", slug: "wordpress-basics", excerpt: "從安裝到完成基本設定，一步步帶你操作 WordPress 後台。", coverImage: null, publishedAt: "2026-06-15", readingTime: 8, author: { name: "管理員", image: null }, category: { name: "WordPress 教學", slug: "wordpress" }, tags: [] },
@@ -15,22 +17,41 @@ const MOCK_POSTS: PostListItem[] = [
   { id: "6", title: "CSS Flexbox 完全攻略", slug: "css-flexbox-guide", excerpt: "從基礎到進階，徹底掌握 Flexbox 排版技巧。", coverImage: null, publishedAt: "2026-05-15", readingTime: 10, author: { name: "管理員", image: null }, category: { name: "前端開發", slug: "frontend" }, tags: [] },
 ];
 
-const MOCK_COURSES: CourseListItem[] = [
-  { id: "c1", title: "個人部落格架設", slug: "blog-setup", description: "從零開始建立自己的 WordPress 部落格", excerpt: "不需要任何程式背景，跟著步驟就能完成", coverImage: null, price: 0, level: "BEGINNER", duration: 120, lessonCount: 9, category: { name: "WordPress 教學", slug: "wordpress" } },
-  { id: "c2", title: "公司官方網站架設", slug: "company-website", description: "為您的企業打造專業的公司網站", excerpt: "節省高額設計費用，自己動手做", coverImage: null, price: 0, level: "BEGINNER", duration: 150, lessonCount: 9, category: { name: "WordPress 教學", slug: "wordpress" } },
-  { id: "c3", title: "購物網站架設", slug: "ecommerce-setup", description: "建立屬於自己的網路商店", excerpt: "WooCommerce 完整教學，從安裝到上線", coverImage: null, price: 0, level: "INTERMEDIATE", duration: 240, lessonCount: 18, category: { name: "WordPress 教學", slug: "wordpress" } },
-  { id: "c4", title: "線上課程平台打造", slug: "online-course-platform", description: "建立可銷售的線上課程平台", excerpt: "Thrive Apprentice + WooCommerce 完整整合", coverImage: null, price: 0, level: "INTERMEDIATE", duration: 360, lessonCount: 24, category: { name: "WordPress 教學", slug: "wordpress" } },
-];
+export async function generateStaticParams() {
+  return CATEGORIES.map((cat) => ({ slug: cat.slug }));
+}
 
-export default function HomePage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const cat = CATEGORIES.find((c) => c.slug === slug);
+  if (!cat) return { title: "分類不存在" };
+  return { title: `${cat.name} 分類文章`, description: `瀏覽所有 ${cat.name} 分類的文章` };
+}
+
+export default async function CategoryPage({ params }: Props) {
+  const { slug } = await params;
+  const cat = CATEGORIES.find((c) => c.slug === slug);
+  if (!cat) notFound();
+
+  const posts = MOCK_POSTS.filter((p) => p.category?.slug === slug);
+
   return (
-    <>
-      <Hero />
-      <FeaturedPosts posts={MOCK_POSTS} />
-      <FeaturedCourses courses={MOCK_COURSES} />
-      <Testimonials />
-      <FaqSection />
-      <Newsletter />
-    </>
+    <div className="mx-auto max-w-6xl px-4 py-10">
+      <Breadcrumb items={[
+        { label: "文章", href: "/posts" },
+        { label: cat.name, href: `/category/${slug}` },
+      ]} />
+      <h1 className="mt-4 text-4xl font-bold tracking-tight text-slate-900">{cat.name}</h1>
+      <p className="mt-2 text-slate-500">{posts.length} 篇文章</p>
+      {posts.length ? (
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {posts.map((post) => <PostCard key={post.id} post={post} />)}
+        </div>
+      ) : (
+        <div className="py-20 text-center text-slate-400">
+          <p className="text-lg">此分類尚無文章</p>
+        </div>
+      )}
+    </div>
   );
 }
