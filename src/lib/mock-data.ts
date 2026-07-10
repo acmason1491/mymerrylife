@@ -14,6 +14,16 @@ export const MOCK_POSTS: PostListItem[] = [
    { id: "7", title: "JavaScript 基礎入門", slug: "javascript-basics", excerpt: "JavaScript 是網頁互動的核心，從變數開始學起。", coverImage: null, publishedAt: "2026-05-10", readingTime: 15, author: { name: "管理員", image: null }, category: { name: "JavaScript", slug: "javascript" }, tags: [T("JavaScript", "javascript"), T("入門", "beginner")] },
    { id: "8", title: "React 元件開發實戰", slug: "react-components", excerpt: "學習 React 元件化開發，建立可重用的 UI 元件。", coverImage: null, publishedAt: "2026-05-05", readingTime: 12, author: { name: "管理員", image: null }, category: { name: "前端開發", slug: "frontend" }, tags: [T("React", "react"), T("前端", "frontend")] },
    { id: "9", title: "Node.js 後端開發入門", slug: "nodejs-basics", excerpt: "使用 JavaScript 開發伺服器端應用程式。", coverImage: null, publishedAt: "2026-04-28", readingTime: 10, author: { name: "管理員", image: null }, category: { name: "後端開發", slug: "backend" }, tags: [T("Node.js", "nodejs"), T("後端", "backend")] },
+   { id: "10", title: "HTML 筆記", slug: "html-notes", excerpt: "HTML (HyperText Markup Language) 是打造網頁的基石，從基本結構到常用標籤、表單與多媒體的完整筆記。", coverImage: null, publishedAt: "2026-07-10", readingTime: 10, author: { name: "Mason", image: null }, category: { name: "前端開發", slug: "frontend" }, tags: [T("HTML", "html"), T("前端", "frontend")] },
+   { id: "11", title: "CSS 筆記", slug: "css-notes", excerpt: "從 CSS 基礎選擇器、盒模型、Flexbox、Grid 到動畫與響應式設計的完整學習筆記。", coverImage: null, publishedAt: "2026-07-10", readingTime: 20, author: { name: "Mason", image: null }, category: { name: "前端開發", slug: "frontend" }, tags: [T("CSS", "css"), T("前端", "frontend")] },
+   { id: "12", title: "JavaScript 筆記 – 1", slug: "js-notes-1", excerpt: "JavaScript 基礎：常見函數、Lexical Structure、變數、資料型別、運算子與控制流程。", coverImage: null, publishedAt: "2026-07-10", readingTime: 15, author: { name: "Mason", image: null }, category: { name: "JavaScript", slug: "javascript" }, tags: [T("JavaScript", "javascript")] },
+   { id: "13", title: "JavaScript 筆記 – 2", slug: "js-notes-2", excerpt: "JavaScript 進階：物件、陣列、函式進階、JSON、Storage、錯誤處理、非同步與模組。", coverImage: null, publishedAt: "2026-07-10", readingTime: 20, author: { name: "Mason", image: null }, category: { name: "JavaScript", slug: "javascript" }, tags: [T("JavaScript", "javascript")] },
+   { id: "14", title: "JavaScript 筆記 – DOM", slug: "js-notes-dom", excerpt: "JavaScript DOM 操作：選取元素、事件處理、節點遍歷與操作、視窗事件與表單處理。", coverImage: null, publishedAt: "2026-07-10", readingTime: 15, author: { name: "Mason", image: null }, category: { name: "JavaScript", slug: "javascript" }, tags: [T("JavaScript", "javascript"), T("DOM", "dom")] },
+   { id: "15", title: "React 筆記 – 前端框架", slug: "react-notes", excerpt: "React 前端框架學習筆記：SPA 概念、元件化開發、JSX、Props、State 與 Hooks。", coverImage: null, publishedAt: "2026-07-10", readingTime: 15, author: { name: "Mason", image: null }, category: { name: "前端開發", slug: "frontend" }, tags: [T("React", "react"), T("前端", "frontend")] },
+   { id: "16", title: "後端開發 筆記 – 1", slug: "backend-notes-1", excerpt: "版本控制 (Git)、命令列基礎、資料結構概論、Node.js 入門與 Express 框架。", coverImage: null, publishedAt: "2026-07-10", readingTime: 20, author: { name: "Mason", image: null }, category: { name: "後端開發", slug: "backend" }, tags: [T("後端", "backend"), T("Node.js", "nodejs")] },
+   { id: "17", title: "後端開發 筆記 – 2", slug: "backend-notes-2", excerpt: "MySQL 資料庫、MongoDB NoSQL 資料庫、Mongoose ODM 與綠界金流 API 整合。", coverImage: null, publishedAt: "2026-07-10", readingTime: 25, author: { name: "Mason", image: null }, category: { name: "後端開發", slug: "backend" }, tags: [T("後端", "backend"), T("MySQL", "mysql"), T("MongoDB", "mongodb")] },
+   { id: "18", title: "後端開發 筆記 – 3", slug: "backend-notes-3", excerpt: "RESTful API 設計、第三方 API 串接、JWT 認證、真實專案架構與部署。", coverImage: null, publishedAt: "2026-07-10", readingTime: 20, author: { name: "Mason", image: null }, category: { name: "後端開發", slug: "backend" }, tags: [T("後端", "backend"), T("API", "api"), T("Node.js", "nodejs")] },
+   { id: "19", title: "如何建立一個可賺錢的部落格 – 獲取個人的被動收入", slug: "start-profitable-blog", excerpt: "從選擇主題、架設網站、內容創作到流量變現，完整教學讓你建立能賺錢的部落格。", coverImage: null, publishedAt: "2026-07-10", readingTime: 15, author: { name: "Mason", image: null }, category: { name: "部落格經營", slug: "blogging" }, tags: [T("部落格", "blog"), T("網賺", "makemoney")] },
 ];
 
 export const MOCK_COURSES: CourseListItem[] = [
@@ -40,4 +50,10 @@ export const TAGS = [
   { name: "React", slug: "react" },
   { name: "Node.js", slug: "nodejs" },
   { name: "後端", slug: "backend" },
+  { name: "DOM", slug: "dom" },
+  { name: "MySQL", slug: "mysql" },
+  { name: "MongoDB", slug: "mongodb" },
+  { name: "API", slug: "api" },
+  { name: "部落格", slug: "blog" },
+  { name: "網賺", slug: "makemoney" },
 ];
