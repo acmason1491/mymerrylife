@@ -17,6 +17,7 @@ export const NAV_ITEMS = [
   { label: "首頁", href: "/" },
   { label: "文章", href: "/posts" },
   { label: "課程", href: "/courses" },
+  { label: "收藏", href: "/bookmarks" },
   { label: "關於", href: "/about" },
   { label: "FAQ", href: "/faq" },
   { label: "聯絡我們", href: "/contact" },

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Clock, Calendar } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { BookmarkButton } from "@/components/shared/bookmark-button";
 import { formatDate } from "@/lib/utils";
 import type { PostListItem } from "@/types";
 
@@ -40,17 +41,20 @@ export function PostCard({ post }: PostCardProps) {
               {post.excerpt}
             </p>
           )}
-          <div className="mt-4 flex items-center gap-4 text-xs text-slate-400">
-            {post.publishedAt && (
+          <div className="mt-4 flex items-center justify-between gap-4">
+            <div className="flex items-center gap-4 text-xs text-slate-400">
+              {post.publishedAt && (
+                <span className="flex items-center gap-1">
+                  <Calendar className="h-3.5 w-3.5" />
+                  {formatDate(post.publishedAt)}
+                </span>
+              )}
               <span className="flex items-center gap-1">
-                <Calendar className="h-3.5 w-3.5" />
-                {formatDate(post.publishedAt)}
+                <Clock className="h-3.5 w-3.5" />
+                {post.readingTime} 分鐘閱讀
               </span>
-            )}
-            <span className="flex items-center gap-1">
-              <Clock className="h-3.5 w-3.5" />
-              {post.readingTime} 分鐘閱讀
-            </span>
+            </div>
+            <BookmarkButton slug={post.slug} />
           </div>
         </CardContent>
       </Card>

@@ -4,6 +4,8 @@ import { ArrowLeft, Clock, BookOpen, Star } from "lucide-react";
 import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { BookmarkButton } from "@/components/shared/bookmark-button";
+import { LessonProgress, LessonCheckbox } from "@/components/shared/lesson-progress";
 import { formatDuration } from "@/lib/utils";
 
 interface Props { params: Promise<{ slug: string }> }
@@ -24,6 +26,57 @@ const COURSES: Record<string, { title: string; description: string; category: st
   "online-course-platform": {
     title: "線上課程平台打造", description: "使用 Thrive Apprentice 與 WooCommerce 建立可銷售的線上課程平台。從課程建立、銷售頁設計到會員管理，完整流程教學。", category: "WordPress 教學", catSlug: "wordpress", level: "中級", duration: 360, price: 0,
     lessons: [{ title: "前置與準備事項", duration: 10 }, { title: "購買網站空間與網址申請", duration: 15 }, { title: "安裝 WordPress", duration: 10 }, { title: "控制面板設定", duration: 15 }, { title: "選擇外掛組合", duration: 10 }, { title: "外掛購買與安裝", duration: 10 }, { title: "主要頁面框架建立與編輯", duration: 20 }, { title: "網站主題與主要頁面優化", duration: 15 }, { title: "Thrive Apprentice 設定精靈", duration: 15 }, { title: "Thrive Apprentice 基本設定", duration: 15 }, { title: "建立第一個課程", duration: 20 }, { title: "自定義課程網頁模板", duration: 20 }, { title: "製作課程銷售頁面", duration: 25 }, { title: "安裝 WooCommerce 外掛", duration: 10 }, { title: "在 WooCommerce 新增產品", duration: 15 }, { title: "Thrive Theme Builder 課程模板", duration: 15 }, { title: "客製化結帳頁模板", duration: 20 }, { title: "WooCommerce 金流設定", duration: 20 }, { title: "購買訂單測試", duration: 15 }, { title: "綠界科技註冊與設定", duration: 15 }, { title: "會員管理頁面", duration: 15 }, { title: "Header 主選單編輯", duration: 10 }, { title: "主選單優化", duration: 10 }],
+  },
+  "frontend-basics": {
+    title: "前端開發基礎", description: "從 HTML、CSS 到 JavaScript，完整掌握現代網頁前端開發的核心技術。這門課程適合完全零基礎的初學者，帶你一步步建立紮實的開發基礎。", category: "前端開發", catSlug: "frontend", level: "初學者", duration: 480, price: 0,
+    lessons: [
+      { title: "網際網路與網站運作原理", duration: 15 },
+      { title: "開發環境設定（VS Code + 瀏覽器開發者工具）", duration: 20 },
+      { title: "HTML 基礎：標籤、屬性與結構", duration: 25 },
+      { title: "HTML 常用元素：文字、圖片、連結、表格", duration: 25 },
+      { title: "HTML 表單與輸入元件", duration: 20 },
+      { title: "HTML5 語意化標籤", duration: 20 },
+      { title: "CSS 基礎：選擇器與屬性", duration: 25 },
+      { title: "CSS 盒模型與定位", duration: 25 },
+      { title: "CSS 排版：Flexbox 完整教學", duration: 30 },
+      { title: "CSS 排版：Grid 完整教學", duration: 30 },
+      { title: "CSS 響應式設計與 Media Query", duration: 25 },
+      { title: "CSS 動畫與轉場效果", duration: 20 },
+      { title: "JavaScript 基礎：變數與資料型別", duration: 25 },
+      { title: "JavaScript 運算子與流程控制", duration: 25 },
+      { title: "JavaScript 函式與作用域", duration: 25 },
+      { title: "JavaScript 陣列與物件操作", duration: 25 },
+      { title: "JavaScript DOM 操作入門", duration: 25 },
+      { title: "JavaScript 事件處理", duration: 20 },
+      { title: "JavaScript ES6+ 新特性", duration: 25 },
+      { title: "Git 版本控制基礎", duration: 20 },
+      { title: "npm 與套件管理", duration: 15 },
+      { title: "Webpack / Vite 打包工具基礎", duration: 20 },
+      { title: "專案實作：個人履歷網站", duration: 30 },
+    ],
+  },
+  "react-practice": {
+    title: "React 框架實戰", description: "從元件化思維到完整 React 生態系，學會使用 React Hooks、狀態管理、路由與 API 串接。適合已有 HTML/CSS/JavaScript 基礎的學習者。", category: "前端開發", catSlug: "frontend", level: "中級", duration: 360, price: 0,
+    lessons: [
+      { title: "React 核心概念與開發環境", duration: 20 },
+      { title: "JSX 語法深入", duration: 15 },
+      { title: "元件（Component）與 Props", duration: 20 },
+      { title: "條件渲染與列表渲染", duration: 20 },
+      { title: "State 與 useState Hook", duration: 25 },
+      { title: "Effect 與 useEffect Hook", duration: 25 },
+      { title: "Context API 與 useContext", duration: 20 },
+      { title: "Reducer 與 useReducer", duration: 20 },
+      { title: "自定義 Hook", duration: 20 },
+      { title: "React Router 路由設定", duration: 25 },
+      { title: "表單處理與受控元件", duration: 20 },
+      { title: "API 串接與資料獲取", duration: 25 },
+      { title: "Error Boundary 與錯誤處理", duration: 15 },
+      { title: "React 效能優化（memo、useMemo、useCallback）", duration: 20 },
+      { title: "測試基礎：React Testing Library", duration: 20 },
+      { title: "Next.js 入門", duration: 25 },
+      { title: "TypeScript 與 React", duration: 20 },
+      { title: "專案實作：待辦事項應用", duration: 30 },
+    ],
   },
 };
 
@@ -74,19 +127,24 @@ export default async function CoursePage({ params }: Props) {
             <Star className="h-4 w-4" /> 完全免費
           </span>
           <Button className="w-full gap-2" size="lg">立即開始學習</Button>
+          <div className="mt-4">
+            <LessonProgress courseSlug={slug} lessonCount={course.lessons.length} />
+          </div>
+          <div className="mt-3">
+            <BookmarkButton slug={slug} />
+          </div>
         </div>
       </div>
       <div className="mt-16">
         <h2 className="text-2xl font-bold text-slate-900 mb-6">課程大綱</h2>
         <div className="space-y-2">
           {course.lessons.map((lesson, i) => (
-            <div key={i} className="flex items-center gap-4 rounded-xl border border-slate-200 bg-white p-4 transition-all hover:border-blue-200 hover:shadow-sm">
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50 text-sm font-bold text-blue-600">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <span className="flex-1 font-medium text-slate-900">{lesson.title}</span>
-              <span className="text-sm text-slate-400">{formatDuration(lesson.duration)}</span>
-            </div>
+            <LessonCheckbox
+              key={i}
+              courseSlug={slug}
+              lessonIndex={i}
+              title={`${String(i + 1).padStart(2, "0")} ${lesson.title}`}
+            />
           ))}
         </div>
       </div>

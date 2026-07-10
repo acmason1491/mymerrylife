@@ -4,6 +4,8 @@ import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
 import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { ReadingProgress } from "@/components/layout/reading-progress";
 import { ShareButtons } from "@/components/shared/share-buttons";
+import { BookmarkButton } from "@/components/shared/bookmark-button";
+import { CommentSection } from "@/components/shared/comment-section";
 import { Badge } from "@/components/ui/badge";
 import { formatDate, absoluteUrl } from "@/lib/utils";
 
@@ -45,6 +47,24 @@ const POSTS: Record<string, { title: string; excerpt: string; content: string; c
     excerpt: "從基礎到進階的排版技巧",
     content: `<h2>什麼是 Flexbox？</h2><p>Flexbox 是 CSS3 引入的佈局模式，專為一維排版設計。它讓容器內的元素能夠自動調整尺寸、對齊與分佈。</p><h2>容器屬性</h2><ul><li><code>display: flex</code>：啟用 Flexbox</li><li><code>flex-direction</code>：主軸方向（row / column）</li><li><code>justify-content</code>：主軸對齊</li><li><code>align-items</code>：交錯軸對齊</li><li><code>flex-wrap</code>：是否換行</li></ul><h2>項目屬性</h2><ul><li><code>flex</code>：伸縮比例（flex-grow flex-shrink flex-basis）</li><li><code>align-self</code>：單獨對齊</li><li><code>order</code>：排列順序</li></ul>`,
     category: "前端開發", catSlug: "frontend", publishedAt: "2026-05-15", tags: ["CSS", "Flexbox"],
+  },
+  "javascript-basics": {
+    title: "JavaScript 基礎入門",
+    excerpt: "從變數到函式的完整學習路徑",
+    content: `<h2>什麼是 JavaScript？</h2><p>JavaScript 是網頁開發的核心程式語言，讓網頁從靜態變成動態互動。它與 HTML、CSS 並列為前端三大核心技术。</p><h2>變數與資料型別</h2><p>JavaScript 有三種宣告變數的方式：</p><ul><li><code>const</code>：常數，不可重新賦值</li><li><code>let</code>：可變變數，區塊作用域</li><li><code>var</code>：舊式宣告，函式作用域（建議避免使用）</li></ul><p>基本資料型別包括：字串（String）、數字（Number）、布林值（Boolean）、null、undefined、物件（Object）、陣列（Array）。</p><h2>函式</h2><p>函式是 JavaScript 的基本建構塊。有三種寫法：</p><ul><li><strong>函式宣告</strong>：<code>function hello() {}</code></li><li><strong>函式表達式</strong>：<code>const hello = function() {}</code></li><li><strong>箭頭函式</strong>：<code>const hello = () => {}</code></li></ul><h2>DOM 操作</h2><p>JavaScript 可以透過 DOM API 操作網頁元素：</p><ul><li><code>document.querySelector()</code>：選取元素</li><li><code>element.addEventListener()</code>：綁定事件</li><li><code>element.textContent</code>：修改文字內容</li><li><code>element.style</code>：修改 CSS 樣式</li></ul>`,
+    category: "JavaScript", catSlug: "javascript", publishedAt: "2026-05-10", tags: ["JavaScript", "入門"],
+  },
+  "react-components": {
+    title: "React 元件開發實戰",
+    excerpt: "學習元件化開發的核心概念",
+    content: `<h2>什麼是 React？</h2><p>React 是由 Facebook 開發的前端框架，採用元件化（Component-Based）架構，讓開發者可以將 UI 拆分成獨立、可重用的區塊。</p><h2>JSX 語法</h2><p>JSX 是 JavaScript 的語法擴充，讓你在 JS 中直接撰寫類似 HTML 的標記：</p><pre><code>function Welcome() { return &lt;h1&gt;Hello, React!&lt;/h1&gt;; }</code></pre><h2>Props</h2><p>Props 是元件之間傳遞資料的方式，類似函式的參數：</p><ul><li>父元件透過屬性傳遞資料給子元件</li><li>子元件透過 <code>props</code> 參數接收</li><li>Props 是唯讀的，不可修改</li></ul><h2>State</h2><p>State 是元件的內部狀態，當狀態改變時，React 會自動重新渲染畫面。</p><ul><li><code>useState</code>：管理簡單狀態</li><li><code>useEffect</code>：處理副作用（API 呼叫、訂閱等）</li><li><code>useContext</code>：全域狀態共享</li></ul><h2>元件生命週期</h2><p>使用 useEffect 可以模擬生命週期：</p><ul><li><strong>掛載時</strong>：<code>useEffect(() => {}, [])</code></li><li><strong>更新時</strong>：<code>useEffect(() => {}, [deps])</code></li><li><strong>卸載時</strong>：<code>useEffect(() => { return () => cleanup; }, [])</code></li></ul>`,
+    category: "前端開發", catSlug: "frontend", publishedAt: "2026-05-05", tags: ["React", "前端"],
+  },
+  "nodejs-basics": {
+    title: "Node.js 後端開發入門",
+    excerpt: "用 JavaScript 打造伺服器端應用程式",
+    content: `<h2>什麼是 Node.js？</h2><p>Node.js 是一個基於 Chrome V8 引擎的 JavaScript 執行環境，讓開發者可以使用 JavaScript 來撰寫伺服器端程式碼。它採用事件驅動、非阻塞 I/O 模型，適合高效能的即時應用。</p><h2>npm 套件管理</h2><p>npm（Node Package Manager）是 Node.js 的套件管理器，可以輕鬆安裝、分享和管理程式套件：</p><ul><li><code>npm init</code>：初始化專案</li><li><code>npm install express</code>：安裝套件</li><li><code>npm run start</code>：執行腳本</li></ul><h2>Express 框架</h2><p>Express 是最受歡迎的 Node.js Web 框架，簡化了路由、中介軟體和請求處理：</p><pre><code>const express = require('express'); const app = express(); app.get('/', (req, res) => { res.send('Hello World'); }); app.listen(3000);</code></pre><h2>API 設計</h2><p>RESTful API 是現今最常見的後端設計模式：</p><ul><li><strong>GET</strong>：取得資源</li><li><strong>POST</strong>：建立資源</li><li><strong>PUT</strong>：更新資源</li><li><strong>DELETE</strong>：刪除資源</li></ul><h2>資料庫串接</h2><p>Node.js 可以搭配多種資料庫：MongoDB（NoSQL）、PostgreSQL（關聯式）、Redis（快取）。使用 ORM 如 Prisma 或 Sequelize 可以簡化資料庫操作。</p>`,
+    category: "後端開發", catSlug: "backend", publishedAt: "2026-04-28", tags: ["Node.js", "後端"],
   },
 };
 
@@ -91,12 +111,16 @@ export default async function PostPage({ params }: Props) {
           </div>
         </header>
         <div className="prose-custom" dangerouslySetInnerHTML={{ __html: post.content }} />
-        <div className="mt-12 flex items-center justify-between border-t border-slate-100 pt-6">
+        <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-slate-100 pt-6">
           <Link href="/posts" className="flex items-center gap-2 text-sm text-slate-500 hover:text-slate-700">
             <ArrowLeft className="h-4 w-4" /> 返回文章列表
           </Link>
-          <ShareButtons url={absoluteUrl(`/posts/${slug}`)} title={post.title} />
+          <div className="flex items-center gap-3">
+            <BookmarkButton slug={slug} />
+            <ShareButtons url={absoluteUrl(`/posts/${slug}`)} title={post.title} />
+          </div>
         </div>
+        <CommentSection postSlug={slug} />
       </article>
     </>
   );

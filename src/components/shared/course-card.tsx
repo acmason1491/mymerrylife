@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Clock, BookOpen, Star } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { BookmarkButton } from "@/components/shared/bookmark-button";
 import type { CourseListItem } from "@/types";
 
 interface CourseCardProps {
@@ -43,17 +44,20 @@ export function CourseCard({ course }: CourseCardProps) {
               {course.excerpt}
             </p>
           )}
-          <div className="mt-4 flex items-center gap-4 text-xs text-slate-400">
-            <span className="flex items-center gap-1">
-              <BookOpen className="h-3.5 w-3.5" />
-              {course.lessonCount} 單元
-            </span>
-            {course.duration && (
+          <div className="mt-4 flex items-center justify-between gap-4">
+            <div className="flex items-center gap-4 text-xs text-slate-400">
               <span className="flex items-center gap-1">
-                <Clock className="h-3.5 w-3.5" />
-                {course.duration} 分鐘
+                <BookOpen className="h-3.5 w-3.5" />
+                {course.lessonCount} 單元
               </span>
-            )}
+              {course.duration && (
+                <span className="flex items-center gap-1">
+                  <Clock className="h-3.5 w-3.5" />
+                  {course.duration} 分鐘
+                </span>
+              )}
+            </div>
+            <BookmarkButton slug={course.slug} />
           </div>
           {course.price > 0 && (
             <div className="mt-3">
