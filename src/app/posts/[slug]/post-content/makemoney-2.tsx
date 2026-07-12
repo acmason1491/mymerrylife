@@ -1,7 +1,7 @@
 const content = `<p>&nbsp;</p>
 <p>恭喜你，已完成了<a href="http://mymerrylife.com/makemoneyonline" target="_blank" rel="noopener">初學者網賺第一步</a>！是否有錢進口袋的感覺了&#8230;</p>
 <p>但是請不要太興奮而到處發文章於社團中，這樣可能會導致帳號被封鎖喔!!</p>
-<p><img loading="lazy" decoding="async" class="size-medium wp-image-228 alignright" src="https://imonline.gowp.space/wp-content/uploads/2017/11/hand-1071808_960_720-300x172.jpg" alt="" /></p>
+<p><!-- imonline image removed (dead domain) --></p>
 <p>一定要記得發文章於社團時不能太過頻繁，發文時最好每發一個社團的間隔約在3-5分鐘左右，每發4-5個社團後最好間隔3-4小時以上，每天發三次就好!</p>
 <p style="text-align: left;"><strong><span style="color: #339966;">建議可以在下面時段發文章效果最好:</span></strong></p>
 <p style="text-align: left;"><strong><span style="color: #339966;">早上 11:00</span></strong></p>
@@ -25,7 +25,7 @@ const content = `<p>&nbsp;</p>
 <p><strong>為什麼要開分身帳號？</strong></p>
 <p>分享的文章越多人閱讀，收益就越多，要讓更多人可以看到我們分享的文章就一定要分享到各個和文章相對應的社團，這樣的效果才會最好.</p>
 <p>但是很不幸的是FB對每個帳號每天發布的文章有嚴格的限制，尤其是我們發布的具連結性的文章，當我們一次發布太多文章，或是將文章分享於太多社團時，這時我們的帳號會被FB鎖定、封鎖. 輕者會被停權1-3天、1-2週，重者停權1個月無法加入社團及發布文章於社團中，甚至直接被封號永遠不得再使用該帳號.&nbsp;<a href="http://mymerrylife.com/avoidfbblock" target="_blank" rel="noopener"> &lt;&lt;如何避免被FB封鎖帳號?&gt;&gt;</a></p>
-<p><img loading="lazy" decoding="async" class="size-medium wp-image-229 alignright" src="https://imonline.gowp.space/wp-content/uploads/2017/11/letters-2794672_960_720-300x75.jpg" alt="" />因此，我們可以利用開設的分身帳號，大量加入社團，再分享文章到每個社團裡.萬一被FB封號時，我們可以利用別的分身帳號再發布文章&#8230;切記，本尊帳號盡量不要過度發布文章，以免被封號</p>
+<p><!-- imonline image removed (dead domain) -->因此，我們可以利用開設的分身帳號，大量加入社團，再分享文章到每個社團裡.萬一被FB封號時，我們可以利用別的分身帳號再發布文章&#8230;切記，本尊帳號盡量不要過度發布文章，以免被封號</p>
 <p>&nbsp;</p>
 <p><strong>分身帳號屬於消耗品..所以越多越好..</strong></p>
 <p>(開設FB帳號需要的 mail 帳號可以去: Gmail, Yahoo, outlook 及 QQ mail 等&#8230;..申請)</p>
@@ -40,7 +40,7 @@ const content = `<p>&nbsp;</p>
 <p><span style="color: #339966;">分身帳號多了，就要做好系統式管理，建議將這些分身帳號用Excel建檔、分類管理，如:帳號mail、帳號名稱、密碼(最好設定一樣的密碼比較好記)、欲分享文章的主題、社團名稱、社團人數等&#8230;.</span></p>
 <p>&nbsp;</p>
 <h3 style="text-align: left;"><strong>2. 開設FB粉絲專頁</strong></h3>
-<p><img loading="lazy" decoding="async" class="size-medium wp-image-230 alignright" src="https://imonline.gowp.space/wp-content/uploads/2017/11/facebook-2229910_960_720-300x212.jpg" alt="" />另一個可以增加文章點閱的方法就是<strong>開設粉絲專頁</strong>，先設定粉絲頁的主題，也就是之後想分享文章的主軸是哪方面的？例如：寵物、婦嬰、機車、健康、飲食等等&#8230;</p>
+<p><!-- imonline image removed (dead domain) -->另一個可以增加文章點閱的方法就是<strong>開設粉絲專頁</strong>，先設定粉絲頁的主題，也就是之後想分享文章的主軸是哪方面的？例如：寵物、婦嬰、機車、健康、飲食等等&#8230;</p>
 <p>接下來就要開始<strong>經營粉絲專頁</strong>，目的就是要吸引大量粉絲來粉絲專頁按讚成為我們的粉絲.</p>
 <p>如何快速<strong>增加粉絲專頁的粉絲</strong>？&#8230;你可以先邀請自己的朋友按讚，但每個人的FB帳號裏的朋友畢竟有限，因此可以利用FB的互按讚社團，和網友互助來獲取粉絲數。當然，如果我們發布的文章內容是具吸引力的，也是可以吸引ㄧ些粉絲的.</p>
 <p>&nbsp;</p>
@@ -57,7 +57,7 @@ const content = `<p>&nbsp;</p>
 <p>如同粉絲專頁，開設屬於自己的主題社團，開始大量加人進社團中。人數越多，文章被點擊的機率自然就會增加了!</p>
 <p>個人覺得此法效果較不如粉絲專頁，故初學者可以先花時間在粉絲專頁經營即可&#8230;.當然如果你有充裕的時間是可以一起經營的&#8230;..</p>
 <hr>
-<p><img loading="lazy" decoding="async" class="size-medium wp-image-231 alignright" src="https://imonline.gowp.space/wp-content/uploads/2017/11/graph-163712_960_720-300x169.jpg" alt="" />以上，是小編個人網賺經驗分享，你可以按照以上的方法、步驟，一步步的達到&#8221;網賺&#8221;的成效!!</p>
+<p><!-- imonline image removed (dead domain) -->以上，是小編個人網賺經驗分享，你可以按照以上的方法、步驟，一步步的達到&#8221;網賺&#8221;的成效!!</p>
 <p>接下來，小編的下篇文章將會帶你更深入了解&#8221;網賺自動化流程&#8221;，讓你每天只需花些許時間就可以自動的賺到不錯的收入!!!</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>

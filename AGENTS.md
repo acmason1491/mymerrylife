@@ -69,6 +69,8 @@ mymerrylife-next/
 - Search page wrapped in `<Suspense>` for `useSearchParams()`.
 - Share buttons use inline SVG icons (lucide-react no longer exports Facebook/Twitter).
 - **28 original WP articles extracted and integrated** (all 28 posts from https://mymerrylife.com/blog-2/)
-- **~336 images** in `public/images/articles/` — 194 newly downloaded from original site
-- **Post/page count**: 37 post pages (was 19), 6 course pages, 4+ category/tag pages — **88 pages total**
+- **1532 images** in `public/images/articles/` — all mymerrylife.com WP images downloaded locally
+- **Post/page count**: 37 post pages, 6 course pages, 4+ category/tag pages — **88 pages total**
+- **Broken images (confirmed dead)**: 5 imonline.gowp.space images removed (dead domain), 1 tracking pixel removed
+- **External images (keep original URLs)**: 14 AWeber help images (403 when hotlinking), 1 gigacircle.com image (server down)
 - **Client features**: Comments, bookmarks, lesson progress, Supabase Auth

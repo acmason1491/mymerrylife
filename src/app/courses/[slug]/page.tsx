@@ -5,8 +5,10 @@ import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { BookmarkButton } from "@/components/shared/bookmark-button";
-import { LessonProgress, LessonCheckbox } from "@/components/shared/lesson-progress";
+import { LessonProgress } from "@/components/shared/lesson-progress";
+import { LessonViewer } from "@/components/shared/lesson-viewer";
 import { formatDuration } from "@/lib/utils";
+import { LESSON_CONTENT } from "./lesson-content-registry";
 
 interface Props { params: Promise<{ slug: string }> }
 
@@ -137,16 +139,11 @@ export default async function CoursePage({ params }: Props) {
       </div>
       <div className="mt-16">
         <h2 className="text-2xl font-bold text-slate-900 mb-6">課程大綱</h2>
-        <div className="space-y-2">
-          {course.lessons.map((lesson, i) => (
-            <LessonCheckbox
-              key={i}
-              courseSlug={slug}
-              lessonIndex={i}
-              title={`${String(i + 1).padStart(2, "0")} ${lesson.title}`}
-            />
-          ))}
-        </div>
+        <LessonViewer
+          lessons={course.lessons}
+          content={LESSON_CONTENT[slug] || []}
+          courseSlug={slug}
+        />
       </div>
     </div>
   );
