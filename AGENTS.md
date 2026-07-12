@@ -68,8 +68,7 @@ mymerrylife-next/
 - Sitemap and robots.txt use `force-static` for static export compatibility.
 - Search page wrapped in `<Suspense>` for `useSearchParams()`.
 - Share buttons use inline SVG icons (lucide-react no longer exports Facebook/Twitter).
-- **10 original WP articles extracted** and integrated (html-notes, css-notes, js-notes-1/2/DOM, react-notes, backend-notes-1/2/3, start-profitable-blog)
-- **122 images** in `public/images/articles/` — URLs rewritten from absolute to local, 30 converted to WebP (~1.3 MB saved), 7 recovered from URL-encoded backup, 23 replaced with SVG placeholders (truly missing from backup)
-- **Post/page count**: 19 post pages (was 9), 6 course pages, 4+ category/tag pages
-- **Client features**: Comments, bookmarks, lesson progress (localStorage)
-- **Tags updated**: 6 new tags (DOM, MySQL, MongoDB, API, 部落格, 網賺)
+- **28 original WP articles extracted and integrated** (all 28 posts from https://mymerrylife.com/blog-2/)
+- **~336 images** in `public/images/articles/` — 194 newly downloaded from original site
+- **Post/page count**: 37 post pages (was 19), 6 course pages, 4+ category/tag pages — **88 pages total**
+- **Client features**: Comments, bookmarks, lesson progress, Supabase Auth

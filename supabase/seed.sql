@@ -21,6 +21,8 @@ insert into public.categories (name, slug, description) values
   ('JavaScript', 'javascript', 'JavaScript 程式語言深入探討'),
   ('後端開發', 'backend', 'Node.js、資料庫、API 開發'),
   ('部落格經營', 'blogging', '部落格經營、SEO、內容行銷'),
+  ('網賺技巧', 'makemoney', '網路賺錢技巧與方法'),
+  ('好用工具', 'tools', '實用網路工具介紹與教學'),
   ('其它', 'other', '其他主題')
 on conflict (slug) do nothing;
 
@@ -56,13 +58,15 @@ do $$
 declare
   author_admin uuid := '00000000-0000-0000-0000-000000000001';
   author_mason uuid := '00000000-0000-0000-0000-000000000002';
-  cat_wp       bigint; cat_frontend bigint; cat_js bigint; cat_backend bigint; cat_blog bigint;
+  cat_wp       bigint; cat_frontend bigint; cat_js bigint; cat_backend bigint; cat_blog bigint; cat_makemoney bigint; cat_tools bigint;
 begin
   select id into cat_wp       from public.categories where slug = 'wordpress';
   select id into cat_frontend from public.categories where slug = 'frontend';
   select id into cat_js       from public.categories where slug = 'javascript';
   select id into cat_backend  from public.categories where slug = 'backend';
   select id into cat_blog     from public.categories where slug = 'blogging';
+  select id into cat_makemoney from public.categories where slug = 'makemoney';
+  select id into cat_tools     from public.categories where slug = 'tools';
 
   insert into public.posts (title, slug, excerpt, content, published, featured, author_id, category_id, published_at) values
     ('WordPress 基礎設定完整指南', 'wordpress-basics', '從安裝到完成基本設定，一步步帶你操作 WordPress 後台。', '<p>WordPress 是目前最受歡迎的內容管理系統，這篇文章將帶你從安裝到基本設定完整走一遍。</p>', true, true, author_admin, cat_wp, '2026-06-15'),
@@ -83,7 +87,25 @@ begin
     ('後端開發 筆記 – 1', 'backend-notes-1', '版本控制 (Git)、命令列基礎、資料結構概論、Node.js 入門與 Express 框架。', '<p>後端開發基礎：從版本控制到 Node.js 與 Express 框架的完整學習路徑。</p>', true, false, author_mason, cat_backend, '2026-07-10'),
     ('後端開發 筆記 – 2', 'backend-notes-2', 'MySQL 資料庫、MongoDB NoSQL 資料庫、Mongoose ODM 與綠界金流 API 整合。', '<p>後端開發進階：SQL 與 NoSQL 資料庫操作，以及第三方金流 API 整合實戰。</p>', true, false, author_mason, cat_backend, '2026-07-10'),
     ('後端開發 筆記 – 3', 'backend-notes-3', 'RESTful API 設計、第三方 API 串接、JWT 認證、真實專案架構與部署。', '<p>後端開發實戰：API 設計原則、認證機制、專案架構與部署流程。</p>', true, false, author_mason, cat_backend, '2026-07-10'),
-    ('如何建立一個可賺錢的部落格 – 獲取個人的被動收入', 'start-profitable-blog', '從選擇主題、架設網站、內容創作到流量變現，完整教學讓你建立能賺錢的部落格。', '<p>建立一個能賺錢的部落格需要策略與執行力，這篇文章完整解析了從 0 到 1 的過程。</p>', true, false, author_mason, cat_blog, '2026-07-10');
+    ('如何建立一個可賺錢的部落格 – 獲取個人的被動收入', 'start-profitable-blog', '從選擇主題、架設網站、內容創作到流量變現，完整教學讓你建立能賺錢的部落格。', '<p>建立一個能賺錢的部落格需要策略與執行力，這篇文章完整解析了從 0 到 1 的過程。</p>', true, false, author_mason, cat_blog, '2026-07-10'),
+    ('網賺初學者快速入門法 – 文章點擊賺錢方法 – 1 (Facebook)', 'makemoney-1', '最簡單、容易上手的在家用網路賺錢方法', '<p>Facebook文章點擊賺錢是最簡單的網賺入門方法。</p>', true, false, author_mason, cat_makemoney, '2026-07-10'),
+    ('網賺初學者快速入門法 – 文章點擊賺錢方法 – 2 (Facebook)', 'makemoney-2', '進階Facebook文章點擊賺錢技巧', '<p>進階的Facebook文章點擊賺錢技巧與策略。</p>', true, false, author_mason, cat_makemoney, '2026-07-10'),
+    ('分身帳號常被FB封鎖、停用嗎？– 如何避免被FB封鎖帳號', 'avoid-fb-block', '教你如何避免Facebook分身帳號被封鎖', '<p>使用多個Facebook分身帳號時如何避免被封鎖的實用技巧。</p>', true, false, author_mason, cat_makemoney, '2026-07-10'),
+    ('如何增加網站流量？– 免費、簡單、好用的全自動軟體介紹(Hitleap)', 'hitleap-intro', '使用Hitleap全自動增加網站流量', '<p>Hitleap是一個免費的全自動流量交換平台，可以幫助你增加網站流量。</p>', true, false, author_mason, cat_tools, '2026-07-10'),
+    ('全自動流量交換平台介紹、比較 (Hitleap vs BIGHITS4U)', 'hitleap-vs-bighits4u', '比較兩個主流全自動流量交換平台', '<p>詳細比較Hitleap和BIGHITS4U兩個流量交換平台的優缺點。</p>', true, false, author_mason, cat_tools, '2026-07-10'),
+    ('自由職業者工作接案、工作外包平台 – Fiverr 網站介紹', 'fiverr-intro', 'Fiverr自由職業者接案平台完整介紹', '<p>Fiverr是全球最大的自由職業者接案平台之一，這篇文章完整介紹其使用方法。</p>', true, false, author_mason, cat_tools, '2026-07-10'),
+    ('如何註冊 AWeber ? AWeber Landing Page 製作與電子郵件行銷', 'aweber-landing-page', '沒有網站也能製作一頁式廣告網頁', '<p>使用AWeber製作Landing Page並進行電子郵件自動化行銷的完整教學。</p>', true, false, author_mason, cat_tools, '2026-07-10'),
+    ('如何使用 AWeber 網站對客戶進行自動化的群發功能 – 電子郵件行銷', 'aweber-broadcast', 'AWeber自動化群發郵件教學', '<p>學習如何使用AWeber的廣播功能對客戶進行自動化群發郵件。</p>', true, false, author_mason, cat_tools, '2026-07-10'),
+    ('如何在 AWeber 平台建立一個自動化回覆的廣告活動 (Campaigns)', 'aweber-campaigns', 'AWeber Campaigns自動化回覆廣告活動教學', '<p>使用AWeber Campaigns功能建立自動化回覆的電子郵件行銷活動。</p>', true, false, author_mason, cat_tools, '2026-07-10'),
+    ('如何自行架設網站? – 新手免費教學 (WordPress)', 'self-host-wordpress', '從零開始學習自行架設WordPress網站', '<p>從選擇主機、安裝WordPress到完成基本設定的完整教學。</p>', true, false, author_mason, cat_wp, '2026-07-10'),
+    ('如何使用 Bluehost 快速架設網站? 簡單、易學 – 新手免費教學 (WordPress)', 'bluehost-setup', '使用Bluehost快速架設WordPress網站完整教學', '<p>使用Bluehost一鍵安裝功能快速架設WordPress網站的詳細步驟。</p>', true, false, author_mason, cat_wp, '2026-07-10'),
+    ('WordPress 網站手動搬家 – 更換虛擬主機網站搬家教學', 'wordpress-move', 'WordPress網站更換主機的手動搬家完整教學', '<p>手動搬遷WordPress網站到新的虛擬主機的完整教學。</p>', true, false, author_mason, cat_wp, '2026-07-10'),
+    ('如何使用 HostGator 快速架設網站? 簡單、易學 – 新手免費教學 (WordPress)', 'hostgator-setup', '使用HostGator快速架設WordPress網站完整教學', '<p>使用HostGator快速架設WordPress網站的詳細步驟教學。</p>', true, false, author_mason, cat_wp, '2026-07-10'),
+    ('如何免費創建自己的網站 – Google協作平台 (Google site) 教學', 'google-site-free', '免費使用Google協作平台建立自己的網站', '<p>使用Google協作平台免費建立自己的網站，無需任何技術背景。</p>', true, false, author_mason, cat_wp, '2026-07-10'),
+    ('如何簡單、快速的製作精美的電子書 – designrr 設計平台介紹', 'designrr-ebook', '使用designrr快速製作精美電子書', '<p>使用designrr平台從部落格文章快速製作精美電子書的教學。</p>', true, false, author_mason, cat_tools, '2026-07-10'),
+    ('超好用的 WordPress 全方位外掛 – Thrive Suite 介紹', 'thrive-suite', 'Thrive Architect 和 Thrive Theme Builder 完整介紹', '<p>Thrive Suite是一套全方位的WordPress外掛，包含頁面編輯器、主題建立器等。</p>', true, false, author_mason, cat_tools, '2026-07-10'),
+    ('如何使用 Thrive Theme Builder 構建固定式目錄 (Sticky Table of Contents)', 'sticky-table-of-contents', '在長篇文章中構建固定式目錄的教學', '<p>使用Thrive Theme Builder為長篇文章建立固定式目錄的詳細步驟。</p>', true, false, author_mason, cat_tools, '2026-07-10'),
+    ('如何在不同電腦之間共用滑鼠和鍵盤？– Mouse Without Borders 應用', 'mouse-without-borders', 'Mouse Without Borders跨電腦共用滑鼠鍵盤教學', '<p>使用Microsoft的Mouse Without Borders軟體在多台電腦間共用滑鼠和鍵盤。</p>', true, false, author_mason, cat_tools, '2026-07-10');
 end $$;
 
 -- ── Tags on Posts ──
@@ -114,7 +136,25 @@ begin
     ('backend-notes-1', 'backend'), ('backend-notes-1', 'nodejs'),
     ('backend-notes-2', 'backend'), ('backend-notes-2', 'mysql'), ('backend-notes-2', 'mongodb'),
     ('backend-notes-3', 'backend'), ('backend-notes-3', 'api'), ('backend-notes-3', 'nodejs'),
-    ('start-profitable-blog', 'blog'), ('start-profitable-blog', 'makemoney');
+    ('start-profitable-blog', 'blog'), ('start-profitable-blog', 'makemoney'),
+    ('makemoney-1', 'makemoney'),
+    ('makemoney-2', 'makemoney'),
+    ('avoid-fb-block', 'makemoney'),
+    ('hitleap-intro', 'traffic'),
+    ('hitleap-vs-bighits4u', 'traffic'),
+    ('fiverr-intro', 'wordpress'),
+    ('aweber-landing-page', 'blog'),
+    ('aweber-broadcast', 'blog'),
+    ('aweber-campaigns', 'blog'),
+    ('self-host-wordpress', 'wordpress'), ('self-host-wordpress', 'beginner'),
+    ('bluehost-setup', 'wordpress'), ('bluehost-setup', 'beginner'),
+    ('wordpress-move', 'wordpress'),
+    ('hostgator-setup', 'wordpress'), ('hostgator-setup', 'beginner'),
+    ('google-site-free', 'wordpress'),
+    ('designrr-ebook', 'blog'),
+    ('thrive-suite', 'wordpress'),
+    ('sticky-table-of-contents', 'wordpress'),
+    ('mouse-without-borders', 'tools');
 
   for pid, tid in
     select p.id, t.id

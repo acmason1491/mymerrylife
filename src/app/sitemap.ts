@@ -22,7 +22,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  const slugs = ["wordpress-basics", "choose-domain-name", "woocommerce-setup", "seo-basics", "html-semantic-tags", "css-flexbox-guide"];
+  const slugs = ["wordpress-basics", "choose-domain-name", "woocommerce-setup", "seo-basics", "html-semantic-tags", "css-flexbox-guide", "javascript-basics", "react-components", "nodejs-basics", "html-notes", "css-notes", "js-notes-1", "js-notes-2", "js-notes-dom", "react-notes", "backend-notes-1", "backend-notes-2", "backend-notes-3", "start-profitable-blog", "makemoney-1", "makemoney-2", "avoid-fb-block", "hitleap-intro", "hitleap-vs-bighits4u", "fiverr-intro", "aweber-landing-page", "aweber-broadcast", "aweber-campaigns", "self-host-wordpress", "bluehost-setup", "wordpress-move", "hostgator-setup", "google-site-free", "designrr-ebook", "thrive-suite", "sticky-table-of-contents", "mouse-without-borders"];
   const postPages = slugs.map((slug) => ({
     url: `${baseUrl}/posts/${slug}`,
     lastModified: new Date(),
