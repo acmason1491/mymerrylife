@@ -15,14 +15,14 @@ export function CommentSection({ postSlug }: CommentSectionProps) {
   const [content, setContent] = useState("");
 
   useEffect(() => {
-    setComments(getComments(postSlug));
+    getComments(postSlug).then(setComments);
   }, [postSlug]);
 
   const handleSubmit = useCallback(
-    (e: React.FormEvent) => {
+    async (e: React.FormEvent) => {
       e.preventDefault();
       if (!author.trim() || !content.trim()) return;
-      const updated = addComment(postSlug, author.trim(), content.trim());
+      const updated = await addComment(postSlug, author.trim(), content.trim());
       setComments(updated);
       setContent("");
     },

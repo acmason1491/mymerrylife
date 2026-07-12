@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+  <rect width="400" height="200" fill="#f8f9fa" rx="8"/>
+  <text x="200" y="25" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#333">flex-direction: row</text>
+  <rect x="20" y="50" width="360" height="100" fill="none" stroke="#94a3b8" stroke-width="2" rx="6"/>
+  <text x="40" y="45" font-family="sans-serif" font-size="10" fill="#94a3b8">Container</text>
+  <rect x="40" y="70" width="70" height="60" fill="#3b82f6" rx="4"/>
+  <text x="75" y="105" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#fff">1</text>
+  <rect x="125" y="70" width="70" height="60" fill="#60a5fa" rx="4"/>
+  <text x="160" y="105" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#fff">2</text>
+  <rect x="210" y="70" width="70" height="60" fill="#93c5fd" rx="4"/>
+  <text x="245" y="105" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#fff">3</text>
+  <rect x="295" y="70" width="70" height="60" fill="#bfdbfe" rx="4"/>
+  <text x="330" y="105" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1e40af">4</text>
+  <text x="200" y="185" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#888">← Main Axis (horizontal) →</text>
+</svg>

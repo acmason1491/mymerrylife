@@ -8,6 +8,7 @@ import { UserPlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/toast";
+import { register } from "@/lib/auth";
 
 const registerSchema = z.object({
   name: z.string().min(1, "請輸入名稱"),
@@ -24,52 +25,42 @@ type RegisterData = z.infer<typeof registerSchema>;
 export function RegisterForm() {
   const [loading, setLoading] = useState(false);
   const { addToast } = useToast();
-  const { register, handleSubmit, formState: { errors } } = useForm<RegisterData>({
+  const { register: reg, handleSubmit, formState: { errors } } = useForm<RegisterData>({
     resolver: zodResolver(registerSchema),
   });
 
   async function onSubmit(data: RegisterData) {
     setLoading(true);
-    try {
-      const res = await fetch("/api/auth/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: data.name, email: data.email, password: data.password }),
-      });
-      if (res.ok) {
-        addToast("註冊成功！請登入", "success");
-        window.location.href = "/auth/login";
-      } else {
-        const err = await res.json();
-        addToast(err.error || "註冊失敗", "error");
-      }
-    } catch {
-      addToast("網路錯誤", "error");
-    } finally {
-      setLoading(false);
+    const { user, error } = await register(data.name, data.email, data.password);
+    if (user) {
+      addToast("註冊成功！請檢查 Email 驗證", "success");
+      window.location.href = "/auth/login";
+    } else {
+      addToast(error || "註冊失敗", "error");
     }
+    setLoading(false);
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       <div>
         <label className="mb-1.5 block text-sm font-medium text-slate-700">名稱</label>
-        <Input {...register("name")} placeholder="您的名稱" />
+        <Input {...reg("name")} placeholder="您的名稱" />
         {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name.message}</p>}
       </div>
       <div>
         <label className="mb-1.5 block text-sm font-medium text-slate-700">Email</label>
-        <Input type="email" {...register("email")} placeholder="your@email.com" />
+        <Input type="email" {...reg("email")} placeholder="your@email.com" />
         {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email.message}</p>}
       </div>
       <div>
         <label className="mb-1.5 block text-sm font-medium text-slate-700">密碼</label>
-        <Input type="password" {...register("password")} placeholder="至少 6 碼" />
+        <Input type="password" {...reg("password")} placeholder="至少 6 碼" />
         {errors.password && <p className="mt-1 text-xs text-red-500">{errors.password.message}</p>}
       </div>
       <div>
         <label className="mb-1.5 block text-sm font-medium text-slate-700">確認密碼</label>
-        <Input type="password" {...register("confirmPassword")} placeholder="再次輸入密碼" />
+        <Input type="password" {...reg("confirmPassword")} placeholder="再次輸入密碼" />
         {errors.confirmPassword && <p className="mt-1 text-xs text-red-500">{errors.confirmPassword.message}</p>}
       </div>
       <Button type="submit" disabled={loading} className="w-full gap-2" size="lg">

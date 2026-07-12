@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { ToastProvider } from "@/components/ui/toast";
+import { AuthProvider } from "@/context/auth-context";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { BackToTop } from "@/components/layout/back-to-top";
@@ -56,10 +57,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="min-h-screen bg-white font-sans text-slate-900 antialiased">
         <ToastProvider>
+          <AuthProvider>
           <Header />
           <main className="min-h-screen">{children}</main>
           <Footer />
           <BackToTop />
+          </AuthProvider>
         </ToastProvider>
       </body>
     </html>

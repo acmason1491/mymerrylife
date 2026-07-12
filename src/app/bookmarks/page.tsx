@@ -13,7 +13,7 @@ export default function BookmarksPage() {
   const [bookmarks, setBookmarks] = useState<string[]>([]);
 
   useEffect(() => {
-    setBookmarks(getBookmarks());
+    getBookmarks().then(setBookmarks);
   }, []);
 
   const bookmarkedPosts = MOCK_POSTS.filter((p) => bookmarks.includes(p.slug));

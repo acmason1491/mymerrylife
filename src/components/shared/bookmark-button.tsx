@@ -12,13 +12,13 @@ export function BookmarkButton({ slug }: BookmarkButtonProps) {
   const [active, setActive] = useState(false);
 
   useEffect(() => {
-    setActive(isBookmarked(slug));
+    isBookmarked(slug).then(setActive);
   }, [slug]);
 
-  const handleClick = useCallback((e: React.MouseEvent) => {
+  const handleClick = useCallback(async (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    const updated = toggleBookmark(slug);
+    const updated = await toggleBookmark(slug);
     setActive(updated.includes(slug));
   }, [slug]);
 

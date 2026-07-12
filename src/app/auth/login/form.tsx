@@ -8,6 +8,8 @@ import { LogIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/toast";
+import { login } from "@/lib/auth";
+import { useAuth } from "@/context/auth-context";
 
 const loginSchema = z.object({
   email: z.string().email("請輸入有效的 Email"),
@@ -19,30 +21,22 @@ type LoginData = z.infer<typeof loginSchema>;
 export function LoginForm() {
   const [loading, setLoading] = useState(false);
   const { addToast } = useToast();
+  const { refresh } = useAuth();
   const { register, handleSubmit, formState: { errors } } = useForm<LoginData>({
     resolver: zodResolver(loginSchema),
   });
 
   async function onSubmit(data: LoginData) {
     setLoading(true);
-    try {
-      const res = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      if (res.ok) {
-        addToast("登入成功", "success");
-        window.location.href = "/dashboard";
-      } else {
-        const err = await res.json();
-        addToast(err.error || "登入失敗", "error");
-      }
-    } catch {
-      addToast("網路錯誤", "error");
-    } finally {
-      setLoading(false);
+    const { user, error } = await login(data.email, data.password);
+    if (user) {
+      await refresh();
+      addToast("登入成功", "success");
+      window.location.href = "/dashboard";
+    } else {
+      addToast(error || "登入失敗", "error");
     }
+    setLoading(false);
   }
 
   return (

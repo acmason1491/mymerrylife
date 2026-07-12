@@ -1,3 +1,5 @@
+import { createClient } from "./supabase/client";
+
 export interface Comment {
   id: string;
   postSlug: string;
@@ -6,74 +8,132 @@ export interface Comment {
   createdAt: string;
 }
 
-export function getComments(postSlug: string): Comment[] {
+export async function getComments(postSlug: string): Promise<Comment[]> {
+  try {
+    const supabase = createClient();
+    const { data } = await supabase
+      .from("comments")
+      .select("id, content, created_at, profiles!inner(name)")
+      .eq("posts.slug", postSlug)
+      .order("created_at", { ascending: false });
+    if (data) {
+      return data.map((c: any) => ({
+        id: String(c.id),
+        postSlug,
+        author: c.profiles?.name ?? "Anonymous",
+        content: c.content,
+        createdAt: c.created_at,
+      }));
+    }
+  } catch {}
   if (typeof window === "undefined") return [];
   try {
     const raw = localStorage.getItem(`comments:${postSlug}`);
     return raw ? JSON.parse(raw) : [];
-  } catch {
-    return [];
-  }
+  } catch { return []; }
 }
 
-export function addComment(postSlug: string, author: string, content: string): Comment[] {
-  const comments = getComments(postSlug);
-  const newComment: Comment = {
-    id: crypto.randomUUID?.() ?? `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`,
-    postSlug,
-    author,
-    content,
-    createdAt: new Date().toISOString(),
-  };
-  comments.push(newComment);
-  localStorage.setItem(`comments:${postSlug}`, JSON.stringify(comments));
-  return comments;
-}
-
-export function getBookmarks(): string[] {
+export async function addComment(postSlug: string, author: string, content: string): Promise<Comment[]> {
+  try {
+    const supabase = createClient();
+    const { data: { user } } = await supabase.auth.getUser();
+    if (user) {
+      const { data: post } = await supabase.from("posts").select("id").eq("slug", postSlug).single();
+      if (post) {
+        await supabase.from("comments").insert({ content, post_id: post.id, user_id: user.id });
+      }
+    }
+    return getComments(postSlug);
+  } catch {}
   if (typeof window === "undefined") return [];
   try {
-    const raw = localStorage.getItem("bookmarks");
-    return raw ? JSON.parse(raw) : [];
-  } catch {
-    return [];
-  }
+    const comments = JSON.parse(localStorage.getItem(`comments:${postSlug}`) ?? "[]");
+    comments.push({ id: crypto.randomUUID?.() ?? `${Date.now()}`, postSlug, author, content, createdAt: new Date().toISOString() });
+    localStorage.setItem(`comments:${postSlug}`, JSON.stringify(comments));
+    return comments;
+  } catch { return []; }
 }
 
-export function toggleBookmark(slug: string): string[] {
-  const bookmarks = getBookmarks();
-  const idx = bookmarks.indexOf(slug);
-  if (idx === -1) {
-    bookmarks.push(slug);
-  } else {
-    bookmarks.splice(idx, 1);
-  }
-  localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
-  return bookmarks;
+export async function getBookmarks(): Promise<string[]> {
+  try {
+    const supabase = createClient();
+    const { data: { user } } = await supabase.auth.getUser();
+    if (user) {
+      const { data } = await supabase.from("bookmarks").select("posts!inner(slug)").eq("user_id", user.id);
+      if (data) return data.map((b: any) => b.posts?.slug).filter(Boolean);
+    }
+  } catch {}
+  if (typeof window === "undefined") return [];
+  try { return JSON.parse(localStorage.getItem("bookmarks") ?? "[]"); } catch { return []; }
 }
 
-export function isBookmarked(slug: string): boolean {
-  return getBookmarks().includes(slug);
-}
-
-export function getProgress(courseSlug: string): number[] {
+export async function toggleBookmark(slug: string): Promise<string[]> {
+  try {
+    const supabase = createClient();
+    const { data: { user } } = await supabase.auth.getUser();
+    if (user) {
+      const { data: post } = await supabase.from("posts").select("id").eq("slug", slug).single();
+      if (post) {
+        const existing = await supabase.from("bookmarks").select("id").eq("user_id", user.id).eq("post_id", post.id).maybeSingle();
+        if (existing.data) {
+          await supabase.from("bookmarks").delete().eq("id", existing.data.id);
+        } else {
+          await supabase.from("bookmarks").insert({ user_id: user.id, post_id: post.id });
+        }
+      }
+      return getBookmarks();
+    }
+  } catch {}
   if (typeof window === "undefined") return [];
   try {
-    const raw = localStorage.getItem(`progress:${courseSlug}`);
-    return raw ? JSON.parse(raw) : [];
-  } catch {
-    return [];
-  }
+    const bm = JSON.parse(localStorage.getItem("bookmarks") ?? "[]");
+    const idx = bm.indexOf(slug);
+    idx === -1 ? bm.push(slug) : bm.splice(idx, 1);
+    localStorage.setItem("bookmarks", JSON.stringify(bm));
+    return bm;
+  } catch { return []; }
 }
 
-export function toggleLesson(courseSlug: string, lessonIndex: number): number[] {
-  const progress = getProgress(courseSlug);
-  const idx = progress.indexOf(lessonIndex);
-  if (idx === -1) {
-    progress.push(lessonIndex);
-  } else {
-    progress.splice(idx, 1);
-  }
-  localStorage.setItem(`progress:${courseSlug}`, JSON.stringify(progress));
-  return progress;
+export async function isBookmarked(slug: string): Promise<boolean> {
+  return (await getBookmarks()).includes(slug);
+}
+
+export async function getProgress(courseSlug: string): Promise<number[]> {
+  try {
+    const supabase = createClient();
+    const { data: { user } } = await supabase.auth.getUser();
+    if (user) {
+      const { data } = await supabase.from("progress").select("lessons!inner(order)").eq("user_id", user.id).eq("lessons.courses.slug", courseSlug);
+      if (data) return data.map((p: any) => p.lessons?.order).filter((o: any) => o != null);
+    }
+  } catch {}
+  if (typeof window === "undefined") return [];
+  try { return JSON.parse(localStorage.getItem(`progress:${courseSlug}`) ?? "[]"); } catch { return []; }
+}
+
+export async function toggleLesson(courseSlug: string, lessonIndex: number): Promise<number[]> {
+  try {
+    const supabase = createClient();
+    const { data: { user } } = await supabase.auth.getUser();
+    if (user) {
+      const { data: lesson } = await supabase.from("lessons").select("id").eq("order", lessonIndex).eq("courses.slug", courseSlug).single();
+      if (lesson) {
+        const existing = await supabase.from("progress").select("id, completed").eq("user_id", user.id).eq("lesson_id", lesson.id).maybeSingle();
+        if (existing.data) {
+          await supabase.from("progress").update({ completed: !existing.data.completed }).eq("id", existing.data.id);
+        } else {
+          await supabase.from("progress").insert({ user_id: user.id, lesson_id: lesson.id, completed: true });
+        }
+      }
+      return getProgress(courseSlug);
+    }
+  } catch {}
+  if (typeof window === "undefined") return [];
+  try {
+    const p = JSON.parse(localStorage.getItem(`progress:${courseSlug}`) ?? "[]");
+    const idx = p.indexOf(lessonIndex);
+    idx === -1 ? p.push(lessonIndex) : p.splice(idx, 1);
+    localStorage.setItem(`progress:${courseSlug}`, JSON.stringify(p));
+    return p;
+  } catch { return []; }
 }

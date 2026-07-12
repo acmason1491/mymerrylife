@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Heart, BookOpen, Bookmark, ArrowRight } from "lucide-react";
+import { Heart, BookOpen, ArrowRight } from "lucide-react";
 import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { getBookmarks } from "@/lib/storage";
 
@@ -10,7 +10,7 @@ export default function DashboardPage() {
   const [bookmarkCount, setBookmarkCount] = useState(0);
 
   useEffect(() => {
-    setBookmarkCount(getBookmarks().length);
+    getBookmarks().then((b) => setBookmarkCount(b.length));
   }, []);
 
   return (

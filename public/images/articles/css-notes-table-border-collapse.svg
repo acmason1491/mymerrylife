@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250">
+  <rect width="400" height="250" fill="#f8f9fa" rx="8"/>
+  <text x="200" y="30" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#333">border-collapse: collapse</text>
+  <rect x="20" y="50" width="180" height="40" fill="none" stroke="#2563eb" stroke-width="2"/>
+  <rect x="200" y="50" width="180" height="40" fill="none" stroke="#2563eb" stroke-width="2"/>
+  <text x="110" y="75" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#2563eb">A</text>
+  <text x="290" y="75" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#2563eb">B</text>
+  <rect x="20" y="90" width="180" height="40" fill="none" stroke="#2563eb" stroke-width="2"/>
+  <rect x="200" y="90" width="180" height="40" fill="none" stroke="#2563eb" stroke-width="2"/>
+  <text x="110" y="115" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#2563eb">C</text>
+  <text x="290" y="115" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#2563eb">D</text>
+  <text x="200" y="165" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#888">⬆ Shared borders (no gaps, single lines)</text>
+</svg>

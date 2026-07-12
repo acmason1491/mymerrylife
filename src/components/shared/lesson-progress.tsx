@@ -13,12 +13,12 @@ export function LessonProgress({ courseSlug, lessonCount }: LessonProgressProps)
   const [completed, setCompleted] = useState<number[]>([]);
 
   useEffect(() => {
-    setCompleted(getProgress(courseSlug));
+    getProgress(courseSlug).then(setCompleted);
   }, [courseSlug]);
 
   const handleToggle = useCallback(
-    (index: number) => {
-      const updated = toggleLesson(courseSlug, index);
+    async (index: number) => {
+      const updated = await toggleLesson(courseSlug, index);
       setCompleted([...updated]);
     },
     [courseSlug],
@@ -52,12 +52,11 @@ export function LessonCheckbox({ courseSlug, lessonIndex, title }: LessonCheckbo
   const [checked, setChecked] = useState(false);
 
   useEffect(() => {
-    const completed = getProgress(courseSlug);
-    setChecked(completed.includes(lessonIndex));
+    getProgress(courseSlug).then((completed) => setChecked(completed.includes(lessonIndex)));
   }, [courseSlug, lessonIndex]);
 
-  const handleToggle = useCallback(() => {
-    const updated = toggleLesson(courseSlug, lessonIndex);
+  const handleToggle = useCallback(async () => {
+    const updated = await toggleLesson(courseSlug, lessonIndex);
     setChecked(updated.includes(lessonIndex));
   }, [courseSlug, lessonIndex]);
 
