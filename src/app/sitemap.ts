@@ -30,7 +30,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  const courseSlugs = ["blog-setup", "company-website", "ecommerce-setup", "online-course-platform", "frontend-basics", "react-practice"];
+  const courseSlugs = ["blog-setup", "company-website", "ecommerce-setup", "online-course-platform"];
   const coursePages = courseSlugs.map((slug) => ({
     url: `${baseUrl}/courses/${slug}`,
     lastModified: new Date(),

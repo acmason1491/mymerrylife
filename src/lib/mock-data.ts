@@ -49,8 +49,7 @@ export const MOCK_COURSES: CourseListItem[] = [
   { id: "c2", title: "公司官方網站架設", slug: "company-website", description: "為您的企業打造專業的公司網站", excerpt: "節省高額設計費用，自己動手做", coverImage: IMG("courses/company-website.png"), price: 0, level: "BEGINNER", duration: 150, lessonCount: 9, category: { name: "WordPress 教學", slug: "wordpress" } },
   { id: "c3", title: "購物網站架設", slug: "ecommerce-setup", description: "建立屬於自己的網路商店", excerpt: "WooCommerce 完整教學，從安裝到上線", coverImage: IMG("courses/ecommerce-setup.png"), price: 0, level: "INTERMEDIATE", duration: 240, lessonCount: 18, category: { name: "WordPress 教學", slug: "wordpress" } },
   { id: "c4", title: "線上課程平台打造", slug: "online-course-platform", description: "建立可銷售的線上課程平台", excerpt: "Thrive Apprentice + WooCommerce 完整整合", coverImage: IMG("courses/online-course-platform.png"), price: 0, level: "INTERMEDIATE", duration: 360, lessonCount: 24, category: { name: "WordPress 教學", slug: "wordpress" } },
-  { id: "c5", title: "前端開發基礎", slug: "frontend-basics", description: "HTML、CSS、JavaScript 網頁前端核心技術", excerpt: "掌握現代前端開發的核心技能", coverImage: IMG("courses/frontend-basics.png"), price: 0, level: "BEGINNER", duration: 480, lessonCount: 23, category: { name: "前端開發", slug: "frontend" } },
-  { id: "c6", title: "React 框架實戰", slug: "react-practice", description: "從基礎到實戰，掌握 React 生態系", excerpt: "元件化開發、Hooks、狀態管理", coverImage: IMG("courses/react-practice.png"), price: 0, level: "INTERMEDIATE", duration: 360, lessonCount: 18, category: { name: "前端開發", slug: "frontend" } },
+
 ];
 
 export const TAGS = [
