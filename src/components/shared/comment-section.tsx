@@ -1,8 +1,10 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import Link from "next/link";
 import { MessageSquare, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/context/auth-context";
 import { getComments, addComment, type Comment } from "@/lib/storage";
 
 interface CommentSectionProps {
@@ -10,8 +12,8 @@ interface CommentSectionProps {
 }
 
 export function CommentSection({ postSlug }: CommentSectionProps) {
+  const { user, userName } = useAuth();
   const [comments, setComments] = useState<Comment[]>([]);
-  const [author, setAuthor] = useState("");
   const [content, setContent] = useState("");
 
   useEffect(() => {
@@ -21,12 +23,12 @@ export function CommentSection({ postSlug }: CommentSectionProps) {
   const handleSubmit = useCallback(
     async (e: React.FormEvent) => {
       e.preventDefault();
-      if (!author.trim() || !content.trim()) return;
-      const updated = await addComment(postSlug, author.trim(), content.trim());
+      if (!content.trim()) return;
+      const updated = await addComment(postSlug, content.trim(), userName ?? undefined);
       setComments(updated);
       setContent("");
     },
-    [postSlug, author, content],
+    [postSlug, content, userName],
   );
 
   return (
@@ -35,25 +37,30 @@ export function CommentSection({ postSlug }: CommentSectionProps) {
         <MessageSquare className="h-6 w-6" /> 留言 ({comments.length})
       </h2>
 
-      <form onSubmit={handleSubmit} className="mt-6 space-y-4">
-        <input
-          type="text"
-          placeholder="你的名字"
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
-          className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none transition-colors focus:border-blue-400 focus:ring-2 focus:ring-blue-100"
-        />
-        <textarea
-          placeholder="寫下你的留言…"
-          rows={4}
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none transition-colors focus:border-blue-400 focus:ring-2 focus:ring-blue-100"
-        />
-        <Button type="submit" className="gap-2">
-          <Send className="h-4 w-4" /> 送出留言
-        </Button>
-      </form>
+      {user ? (
+        <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+          <p className="text-sm text-slate-500">以 <strong>{userName ?? user.email}</strong> 留言</p>
+          <textarea
+            placeholder="寫下你的留言…"
+            rows={4}
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none transition-colors focus:border-blue-400 focus:ring-2 focus:ring-blue-100"
+          />
+          <Button type="submit" className="gap-2" disabled={!content.trim()}>
+            <Send className="h-4 w-4" /> 送出留言
+          </Button>
+        </form>
+      ) : (
+        <div className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-6 text-center">
+          <p className="text-sm text-slate-500">
+            <Link href="/auth/login" className="font-medium text-blue-600 hover:underline">登入</Link>
+            {" 或 "}
+            <Link href="/auth/register" className="font-medium text-blue-600 hover:underline">註冊</Link>
+            {" 後即可留言"}
+          </p>
+        </div>
+      )}
 
       <div className="mt-8 space-y-4">
         {comments.length === 0 && (

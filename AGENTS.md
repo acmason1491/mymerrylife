@@ -74,3 +74,10 @@ mymerrylife-next/
 - **Broken images (confirmed dead)**: 5 imonline.gowp.space images removed (dead domain), 1 tracking pixel removed
 - **External images (keep original URLs)**: 14 AWeber help images (403 when hotlinking), 1 gigacircle.com image (server down)
 - **Client features**: Comments, bookmarks, lesson progress, Supabase Auth
+- **Backend integration**: Supabase CRUD for comments/bookmarks/progress with localStorage fallback
+  - `storage.ts`: Dual-mode (Supabase → localStorage) for all interactive features
+  - Comments require auth (shows login prompt for unauthenticated users)
+  - Lesson progress syncs across devices when logged in
+  - Dashboard shows real bookmark count and enrollment count
+- **Supabase schema**: 13 tables (profiles, posts, courses, lessons, comments, bookmarks, progress, enrollments, reviews, newsletters, contacts, categories, tags) with RLS policies
+- **Supabase migration**: `supabase/migrations/00001_init.sql` (300 lines, includes schema + RLS + triggers)

@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChevronDown, ChevronRight, FileText, CheckCircle, Circle } from "lucide-react";
+import { getProgress, toggleLesson } from "@/lib/storage";
 
 interface LessonViewerProps {
   lessons: { title: string; duration: number }[];
@@ -11,18 +12,15 @@ interface LessonViewerProps {
 
 export function LessonViewer({ lessons, content, courseSlug }: LessonViewerProps) {
   const [openLesson, setOpenLesson] = useState<number | null>(null);
-  const [completed, setCompleted] = useState<Set<number>>(new Set());
+  const [completed, setCompleted] = useState<number[]>([]);
 
-  const toggleLesson = (index: number) => {
-    setOpenLesson(openLesson === index ? null : index);
-  };
+  useEffect(() => {
+    getProgress(courseSlug).then(setCompleted);
+  }, [courseSlug]);
 
-  const toggleCompleted = (index: number) => {
-    const next = new Set(completed);
-    if (next.has(index)) next.delete(index);
-    else next.add(index);
-    setCompleted(next);
-    localStorage.setItem(`course-${courseSlug}`, JSON.stringify([...next]));
+  const handleToggle = async (index: number) => {
+    const updated = await toggleLesson(courseSlug, index);
+    setCompleted(updated);
   };
 
   return (
@@ -30,7 +28,7 @@ export function LessonViewer({ lessons, content, courseSlug }: LessonViewerProps
       {lessons.map((lesson, i) => (
         <div key={i} className="rounded-lg border border-slate-200 overflow-hidden">
           <button
-            onClick={() => toggleLesson(i)}
+            onClick={() => setOpenLesson(openLesson === i ? null : i)}
             className="flex w-full items-center gap-3 bg-white px-4 py-3 text-left hover:bg-slate-50 transition-colors"
           >
             {openLesson === i ? (
@@ -39,10 +37,10 @@ export function LessonViewer({ lessons, content, courseSlug }: LessonViewerProps
               <ChevronRight className="h-4 w-4 shrink-0 text-slate-400" />
             )}
             <button
-              onClick={(e) => { e.stopPropagation(); toggleCompleted(i); }}
+              onClick={(e) => { e.stopPropagation(); handleToggle(i); }}
               className="shrink-0"
             >
-              {completed.has(i) ? (
+              {completed.includes(i) ? (
                 <CheckCircle className="h-5 w-5 text-emerald-500" />
               ) : (
                 <Circle className="h-5 w-5 text-slate-300" />
