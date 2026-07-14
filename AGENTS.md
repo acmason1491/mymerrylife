@@ -68,9 +68,9 @@ mymerrylife-next/
 - Sitemap and robots.txt use `force-static` for static export compatibility.
 - Search page wrapped in `<Suspense>` for `useSearchParams()`.
 - Share buttons use inline SVG icons (lucide-react no longer exports Facebook/Twitter).
-- **28 original WP articles extracted and integrated** (all 28 posts from https://mymerrylife.com/blog-2/)
+- **34 articles** integrated (removed 3: WordPress 基礎設定完整指南, 如何選擇適合的網域名稱, WooCommerce 購物車設定教學)
 - **1532 images** in `public/images/articles/` — all mymerrylife.com WP images downloaded locally
-- **Post/page count**: 37 post pages, 6 course pages, 4+ category/tag pages — **88 pages total**
+- **Post/page count**: 34 post pages, 4 course pages, 4+ category/tag pages — **83 pages total**
 - **Broken images (confirmed dead)**: 5 imonline.gowp.space images removed (dead domain), 1 tracking pixel removed
 - **External images (keep original URLs)**: 14 AWeber help images (403 when hotlinking), 1 gigacircle.com image (server down)
 - **Client features**: Comments, bookmarks, lesson progress, Supabase Auth

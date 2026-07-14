@@ -62,6 +62,7 @@ export default function PostsPage() {
       <div className="mt-4 mb-10 flex flex-wrap gap-2">
         {TAG_GROUPS.map((g) => {
           const posts = groups.get(g.name) ?? [];
+          if (posts.length === 0) return null;
           return (
             <Link key={g.name} href={`#group-${g.name}`}>
               <Badge variant="outline" className="cursor-pointer hover:bg-slate-100 text-sm px-3 py-1.5">

@@ -30,24 +30,7 @@ import mouse_without_bordersContent from "./post-content/mouse-without-borders";
 interface Props { params: Promise<{ slug: string }> }
 
 const POSTS: Record<string, { title: string; excerpt: string; content: string; category: string; catSlug: string; publishedAt: string; tags?: string[] }> = {
-  "wordpress-basics": {
-    title: "WordPress 基礎設定完整指南",
-    excerpt: "從安裝到完成基本設定",
-    content: `<h2>什麼是 WordPress？</h2><p>WordPress 是全球最受歡迎的內容管理系統（CMS），超過 40% 的網站使用 WordPress 架設。它完全免費、開放原始碼，而且不需要任何程式背景就能操作。</p><h2>安裝 WordPress</h2><p>大多數主機商（如 Bluehost）都提供一鍵安裝 WordPress 的功能。登入你的主機控制面板，找到 WordPress 安裝程式，按照步驟即可完成。</p><h2>基本設定</h2><p>安裝完成後，登入後台（yourdomain.com/wp-admin），你會看到 WordPress 儀表板。這裡是你管理整個網站的核心中樞。</p><ul><li><strong>一般設定</strong>：網站標題、描述、時區</li><li><strong>閱讀設定</strong>：首頁顯示方式、Feed 顯示數量</li><li><strong>永久連結設定</strong>：建議設定為「文章名稱」以獲得最佳 SEO</li></ul>`,
-    category: "WordPress 教學", catSlug: "wordpress", publishedAt: "2026-06-15", tags: ["WordPress", "入門"],
-  },
-  "choose-domain-name": {
-    title: "如何選擇適合的網域名稱",
-    excerpt: "網域名稱是網站的第一印象",
-    content: `<h2>為什麼網域名稱很重要？</h2><p>網域名稱（Domain Name）是使用者在網路上找到你的第一道門。好的域名不僅容易記憶，也能提升品牌信任度。</p><h2>選擇域名的原則</h2><ul><li><strong>簡短好記</strong>：越短越好，避免複雜的拼寫</li><li><strong>品牌相關</strong>：與你的網站主題或品牌名稱相關</li><li><strong>避免數字與連字號</strong>：容易造成混淆</li><li><strong>選擇正確的後綴</strong>：.com 為首選，.net、.org 也常見</li></ul><h2>從哪裡購買？</h2><p>推薦在 Bluehost 或 Namecheap 等平台購買網域，通常第一年享有優惠價格。年費約 300-500 元台幣。`,
-    category: "WordPress 教學", catSlug: "wordpress", publishedAt: "2026-06-10",
-  },
-  "woocommerce-setup": {
-    title: "WooCommerce 購物車設定教學",
-    excerpt: "一步步建立網路商店",
-    content: `<h2>WooCommerce 簡介</h2><p>WooCommerce 是 WordPress 上最受歡迎的電子商務外掛，讓你可以輕鬆將任何 WordPress 網站變成功能完整的網路商店。</p><h2>安裝與啟用</h2><p>在 WordPress 後台 → 外掛 → 安裝新外掛，搜尋 WooCommerce，安裝並啟用。安裝精靈會引導你完成基本設定。</p><h2>核心功能設定</h2><ul><li><strong>商品類型</strong>：簡單商品、可變商品、群組商品、外部商品</li><li><strong>金流設定</strong>：支援信用卡、ATM 轉帳、貨到付款、綠界科技</li><li><strong>物流設定</strong>：宅配、超商取貨、免運門檻</li><li><strong>稅務設定</strong>：根據營業地點設定稅率</li></ul>`,
-    category: "WordPress 教學", catSlug: "wordpress", publishedAt: "2026-06-05", tags: ["WooCommerce", "購物網站"],
-  },
+
   "seo-basics": {
     title: "SEO 基礎入門：讓你的文章被 Google 看見",
     excerpt: "提升網站流量的核心技巧",
