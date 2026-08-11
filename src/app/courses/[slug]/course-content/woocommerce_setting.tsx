@@ -45,7 +45,7 @@ const content = `<div class="lesson-content">
 </div>
 <div class="tva-resource-get tva-resource-editable tva-resource-container" data-css="tve-u-179d0cfcc75" style="">
 <div class="tva-resource-button tva-resource-editable tcb-local-vars-root tva-res-download tve_ea_thrive_animation tve_anim_sweep_to_top" data-tcb_hover_state_parent="" data-button-style="btn-tpl-58359" style="" data-css="tve-u-1784aaa1b47"><div class="thrive-colors-palette-config" style="display: none !important"></div>
-<a rel="noindex nofollow noopener noreferrer" href="" class="tcb-button-link tva-resource-link tcb-plain-text tve_evt_manager_listen tve_et_mouseover" data-tcb-events="__TCB_EVENT_&#091;{&quot;t&quot;:&quot;mouseover&quot;,&quot;config&quot;:{&quot;anim&quot;:&quot;sweep_to_top&quot;,&quot;loop&quot;:1},&quot;a&quot;:&quot;thrive_animation&quot;}&#093;_TNEVE_BCT__" style="">
+<a rel="noindex nofollow noopener noreferrer" href="https://docs.google.com/document/d/1VRQwhPcA0d0bA59dnlbar26gXRugEFTp5-jiYdqvAYA/edit?usp=sharing" class="tcb-button-link tva-resource-link tcb-plain-text tve_evt_manager_listen tve_et_mouseover" data-tcb-events="__TCB_EVENT_&#091;{&quot;t&quot;:&quot;mouseover&quot;,&quot;config&quot;:{&quot;anim&quot;:&quot;sweep_to_top&quot;,&quot;loop&quot;:1},&quot;a&quot;:&quot;thrive_animation&quot;}&#093;_TNEVE_BCT__" style="">
 <span class="tcb-button-texts" style=""><span class="tcb-button-text thrv-inline-text" style=""><span class="thrive-shortcode-content" data-extra_key="" data-option-inline="1" data-shortcode="tva_dynamic_actions_resources_download_label" data-shortcode-name="Resource download label" style="">下載</span></span></span>
 </a>
 </div>
@@ -69,7 +69,7 @@ const content = `<div class="lesson-content">
 </div>
 <div class="tva-resource-get tva-resource-editable tva-resource-container" data-css="tve-u-179d0cfcc75" style="">
 <div class="tva-resource-button tva-resource-editable tcb-local-vars-root tva-res-download tve_ea_thrive_animation tve_anim_sweep_to_top" data-tcb_hover_state_parent="" data-button-style="btn-tpl-58359" style="" data-css="tve-u-1784aaa1b47"><div class="thrive-colors-palette-config" style="display: none !important"></div>
-<a rel="noindex nofollow noopener noreferrer" href="" class="tcb-button-link tva-resource-link tcb-plain-text tve_evt_manager_listen tve_et_mouseover" data-tcb-events="__TCB_EVENT_&#091;{&quot;t&quot;:&quot;mouseover&quot;,&quot;config&quot;:{&quot;anim&quot;:&quot;sweep_to_top&quot;,&quot;loop&quot;:1},&quot;a&quot;:&quot;thrive_animation&quot;}&#093;_TNEVE_BCT__" style="">
+<a rel="noindex nofollow noopener noreferrer" href="https://docs.google.com/document/d/1VRQwhPcA0d0bA59dnlbar26gXRugEFTp5-jiYdqvAYA/edit?usp=sharing" class="tcb-button-link tva-resource-link tcb-plain-text tve_evt_manager_listen tve_et_mouseover" data-tcb-events="__TCB_EVENT_&#091;{&quot;t&quot;:&quot;mouseover&quot;,&quot;config&quot;:{&quot;anim&quot;:&quot;sweep_to_top&quot;,&quot;loop&quot;:1},&quot;a&quot;:&quot;thrive_animation&quot;}&#093;_TNEVE_BCT__" style="">
 <span class="tcb-button-texts" style=""><span class="tcb-button-text thrv-inline-text" style=""><span class="thrive-shortcode-content" data-extra_key="" data-option-inline="1" data-shortcode="tva_dynamic_actions_resources_download_label" data-shortcode-name="Resource download label" style="">下載</span></span></span>
 </a>
 </div>
