@@ -62,7 +62,7 @@ mymerrylife-next/
 
 ## Build Status
 
-✅ Build passes with `npm run build` — **70 pages** generated as static HTML.
+✅ Build passes with `npm run build` — **83 pages** generated as static HTML.
 - All dynamic routes use `generateStaticParams` with mock data arrays.
 - API routes removed (incompatible with static export).
 - Sitemap and robots.txt use `force-static` for static export compatibility.
@@ -72,7 +72,10 @@ mymerrylife-next/
 - **1532 images** in `public/images/articles/` — all mymerrylife.com WP images downloaded locally
 - **Post/page count**: 34 post pages, 4 course pages, 4+ category/tag pages — **83 pages total**
 - **Broken images (confirmed dead)**: 5 imonline.gowp.space images removed (dead domain), 1 tracking pixel removed
-- **External images (keep original URLs)**: 14 AWeber help images (403 when hotlinking), 1 gigacircle.com image (server down)
+- **Article thumbnails**: original WordPress featured images downloaded to `public/images/posts/`; all 34 article cards have local thumbnails
+- **Article media**: all local image paths include `/mymerrylife`; blocked AWeber/Gigacircle images use local fallback SVGs instead of broken remote URLs
+- **Course media**: 61 lesson files normalized to flattened local assets with encoded filenames, base path, valid `srcset`, and 5 YouTube iframes with explicit `src`
+- **Course lesson counts**: ecommerce 18 lessons and online-course-platform 25 lessons now match the content registry
 - **Client features**: Comments, bookmarks, lesson progress, Supabase Auth
 - **Backend integration**: Supabase CRUD for comments/bookmarks/progress with localStorage fallback
   - `storage.ts`: Dual-mode (Supabase → localStorage) for all interactive features

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#17324d"/>
+  <rect x="70" y="70" width="1140" height="580" rx="28" fill="#246b8f"/>
+  <circle cx="180" cy="180" r="64" fill="#f6c85f"/>
+  <path d="M150 180h60M180 150v60" stroke="#17324d" stroke-width="14" stroke-linecap="round"/>
+  <text x="280" y="210" fill="#fff" font-family="Arial, sans-serif" font-size="54" font-weight="700">AWeber Campaigns</text>
+  <text x="140" y="360" fill="#d8edf5" font-family="Arial, sans-serif" font-size="32">單擊草稿選項卡</text>
+  <text x="140" y="570" fill="#b8d7e4" font-family="Arial, sans-serif" font-size="24">本機媒體備援圖</text>
+</svg>

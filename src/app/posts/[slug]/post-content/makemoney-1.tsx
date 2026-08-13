@@ -6,7 +6,7 @@ const content = `<h2><span style="font-size: 14pt;"><span style="font-size: 1.6e
 <h2></h2>
 <p>小編推薦:</p>
 <p><!-- tracking pixel removed -->首先，你必須進入網站: <a href="http://wioau.com/signup?c=KA6B8"><span style="color: #000000;"><strong>歡享網</strong></span></a>，註冊後成為會員!</p>
-<p><img loading="lazy" decoding="async" src="/images/articles/2020-04-18-12-13-wioau.com_.png" alt="" /></p>
+<p><img loading="lazy" decoding="async" src="/mymerrylife/images/articles/2020-04-18-12-13-wioau.com_.png" alt="" /></p>
 <blockquote><p><a href="http://wioau.com/signup?c=KA6B8"><span style="color: #3366ff;">&gt;&gt;&gt; 點擊註冊加入賺錢行列 !! &lt;&lt;&lt;&lt;</span></a></p></blockquote>
 <p>(註冊流程非常簡單，一般只需要輸入<strong>電子郵箱</strong>及<strong>密碼</strong>即可)</p>
 <p><span style="color: #000000;"><strong>歡享網獎勵方式如下:</strong></span></p>
@@ -70,7 +70,7 @@ const content = `<h2><span style="font-size: 14pt;"><span style="font-size: 1.6e
 <p><strong>不要懷疑就這麼簡單&#8230;</strong></p>
 <p><strong>但是&#8230;</strong></p>
 <p><strong>這只是網路賺錢的第一小步而已喔&#8230;..</strong></p>
-<p><img loading="lazy" decoding="async" style="display: block; -webkit-user-drag: none;" src="https://s6.gigacircle.com/media/s6_542154b00fef6.jpg" alt="" /></p>
+<p><img src="/mymerrylife/images/articles/traffic-exchange-reference.svg" alt="Traffic exchange reference" /></p>
 <h4><strong>接下來&#8230;</strong></h4>
 <h4>你還要了解此網賺方法須注意的操作細節，並學習如何增加收入! 如何快速增加點閱率的方法!</h4>
 <h4>以及相關獨門秘技&#8230;&#8230;</h4>

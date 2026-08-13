@@ -27,18 +27,29 @@ export function LessonViewer({ lessons, content, courseSlug }: LessonViewerProps
     <div className="space-y-3">
       {lessons.map((lesson, i) => (
         <div key={i} className="rounded-lg border border-slate-200 overflow-hidden">
-          <button
-            onClick={() => setOpenLesson(openLesson === i ? null : i)}
-            className="flex w-full items-center gap-3 bg-white px-4 py-3 text-left hover:bg-slate-50 transition-colors"
-          >
-            {openLesson === i ? (
-              <ChevronDown className="h-4 w-4 shrink-0 text-slate-400" />
-            ) : (
-              <ChevronRight className="h-4 w-4 shrink-0 text-slate-400" />
-            )}
+          <div className="flex w-full items-center gap-3 bg-white px-4 py-3 hover:bg-slate-50 transition-colors">
             <button
+              type="button"
+              onClick={() => setOpenLesson(openLesson === i ? null : i)}
+              aria-expanded={openLesson === i}
+              className="flex min-w-0 flex-1 items-center gap-3 text-left"
+            >
+              {openLesson === i ? (
+                <ChevronDown className="h-4 w-4 shrink-0 text-slate-400" />
+              ) : (
+                <ChevronRight className="h-4 w-4 shrink-0 text-slate-400" />
+              )}
+              <FileText className="h-4 w-4 shrink-0 text-blue-500" />
+              <span className="flex-1 text-sm font-medium text-slate-700">
+                {String(i + 1).padStart(2, "0")} {lesson.title}
+              </span>
+              <span className="text-xs text-slate-400">{lesson.duration} 分鐘</span>
+            </button>
+            <button
+              type="button"
               onClick={(e) => { e.stopPropagation(); handleToggle(i); }}
-              className="shrink-0"
+              aria-label={completed.includes(i) ? `標記${lesson.title}為未完成` : `標記${lesson.title}為已完成`}
+              className="shrink-0 rounded-full"
             >
               {completed.includes(i) ? (
                 <CheckCircle className="h-5 w-5 text-emerald-500" />
@@ -46,12 +57,7 @@ export function LessonViewer({ lessons, content, courseSlug }: LessonViewerProps
                 <Circle className="h-5 w-5 text-slate-300" />
               )}
             </button>
-            <FileText className="h-4 w-4 shrink-0 text-blue-500" />
-            <span className="flex-1 text-sm font-medium text-slate-700">
-              {String(i + 1).padStart(2, "0")} {lesson.title}
-            </span>
-            <span className="text-xs text-slate-400">{lesson.duration} 分鐘</span>
-          </button>
+          </div>
           {openLesson === i && content[i] && (
             <div className="border-t border-slate-200 bg-white px-6 py-5">
               <div
