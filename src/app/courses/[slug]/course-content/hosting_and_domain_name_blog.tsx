@@ -3,7 +3,7 @@ const content = `<div class="lesson-content">
 	
 
 	<div class="tve_responsive_video_container" style="padding-bottom: 56.25%;">
-		<div class="tcb-video-float-container"><div class="video_overlay"></div><iframe title="Responsive Video" class="tcb-responsive-video" data-code="R7_7Pu0LkZk" data-hash="undefined" data-provider="youtube" frameborder="0" allowfullscreen="" loading="lazy" data-src="https://www.youtube.com/embed/R7_7Pu0LkZk?rel=0&amp;modestbranding=1&amp;controls=1&amp;showinfo=1&amp;fs=1&amp;wmode=transparent"></iframe></div>
+		<div class="tcb-video-float-container"><div class="video_overlay"></div><iframe src="https://www.youtube.com/embed/R7_7Pu0LkZk?rel=0&amp;modestbranding=1&amp;controls=1&amp;showinfo=1&amp;fs=1&amp;wmode=transparent" title="Responsive Video" class="tcb-responsive-video" data-code="R7_7Pu0LkZk" data-hash="undefined" data-provider="youtube" frameborder="0" allowfullscreen="" loading="lazy" data-src="https://www.youtube.com/embed/R7_7Pu0LkZk?rel=0&amp;modestbranding=1&amp;controls=1&amp;showinfo=1&amp;fs=1&amp;wmode=transparent"></iframe></div>
 	</div>
 </div><div class="thrv_wrapper thrv_text_element" data-css="tve-u-1886c387a43" style="">	<p>當你決定好網域名稱後，下個步驟就是註冊你的網域名和租用虛擬主機以啟動你自己的網站。對新手而言，個人推薦使用簡單、容易上手，價格上又不貴的 bluehost 平台來註冊網域名和租用虛擬主機。</p><p>你可以點擊下方按鈕來獲取折扣 (3.5折) 鏈結， 並進入他們的網站。</p></div><div class="thrv_wrapper thrv-button thrv-button-v2 tcb-local-vars-root" data-css="tve-u-17e09867768" style="--tve-border-radius:15px;" data-next="0">
 	<div class="thrive-colors-palette-config" style="display: none !important"></div>
