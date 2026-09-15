@@ -7,6 +7,7 @@ import { FAQS } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "常見問題",
   description: "關於 WordPress 架設、網站經營的常見問題解答",
+  alternates: { canonical: "/faq/" },
 };
 
 export default function FaqPage() {

@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const tag = TAGS.find((t) => t.slug === slug);
   if (!tag) return { title: "標籤不存在" };
-  return { title: `#${tag.name} 標籤文章`, description: `瀏覽所有標籤為 ${tag.name} 的文章` };
+  return { title: `#${tag.name} 標籤文章`, description: `瀏覽所有標籤為 ${tag.name} 的文章`, alternates: { canonical: `/tag/${slug}/` } };
 }
 
 export default async function TagPage({ params }: Props) {

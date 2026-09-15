@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const cat = CATEGORIES.find((c) => c.slug === slug);
   if (!cat) return { title: "分類不存在" };
-  return { title: `${cat.name} 分類文章`, description: `瀏覽所有 ${cat.name} 分類的文章` };
+  return { title: `${cat.name} 分類文章`, description: `瀏覽所有 ${cat.name} 分類的文章`, alternates: { canonical: `/category/${slug}/` } };
 }
 
 export default async function CategoryPage({ params }: Props) {

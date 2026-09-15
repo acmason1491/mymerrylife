@@ -4,6 +4,7 @@ import { Breadcrumb } from "@/components/layout/breadcrumb";
 export const metadata: Metadata = {
   title: "隱私權政策",
   description: "My Merry Life 隱私權政策",
+  alternates: { canonical: "/privacy-policy/" },
 };
 
 export default function PrivacyPolicyPage() {

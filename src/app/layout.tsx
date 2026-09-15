@@ -26,9 +26,11 @@ export const metadata: Metadata = {
     type: "website",
     locale: "zh_TW",
     siteName: "My Merry Life",
+    images: [{ url: "/images/courses/blog-setup.png", alt: "My Merry Life — 免費 WordPress 網站架設教學" }],
   },
   twitter: {
     card: "summary_large_image",
+    images: ["/images/courses/blog-setup.png"],
   },
   robots: {
     index: true,

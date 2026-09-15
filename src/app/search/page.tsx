@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "搜尋",
   description: "搜尋 My Merry Life 上的文章與課程",
   robots: { index: false, follow: true },
+  alternates: { canonical: "/search/" },
 };
 
 export default function SearchPage() {

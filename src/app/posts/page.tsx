@@ -10,6 +10,7 @@ import { MOCK_POSTS } from "@/lib/mock-data";
 export const metadata: Metadata = {
   title: "文章列表 | My Merry Life",
   description: "瀏覽所有 WordPress 教學、前端開發、後端開發、部落格經營等文章",
+  alternates: { canonical: "/posts/" },
 };
 
 interface TagGroup {

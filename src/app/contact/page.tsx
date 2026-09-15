@@ -5,6 +5,7 @@ import { ContactForm } from "@/components/forms/contact-form";
 export const metadata: Metadata = {
   title: "聯絡我們",
   description: "有任何問題或建議？歡迎與我們聯絡",
+  alternates: { canonical: "/contact/" },
 };
 
 export default function ContactPage() {

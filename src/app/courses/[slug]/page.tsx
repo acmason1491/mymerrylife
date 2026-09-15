@@ -8,6 +8,7 @@ import { BookmarkButton } from "@/components/shared/bookmark-button";
 import { LessonProgress } from "@/components/shared/lesson-progress";
 import { LessonViewer } from "@/components/shared/lesson-viewer";
 import { formatDuration } from "@/lib/utils";
+import { MOCK_COURSES } from "@/lib/mock-data";
 import { LESSON_CONTENT } from "./lesson-content-registry";
 
 interface Props { params: Promise<{ slug: string }> }
@@ -40,7 +41,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const course = COURSES[slug];
   if (!course) return { title: "課程不存在" };
-  return { title: course.title, description: course.description };
+  const cover = MOCK_COURSES.find((c) => c.slug === slug)?.coverImage;
+  const ogImage = cover?.startsWith("/mymerrylife") ? cover.slice("/mymerrylife".length) : cover;
+  return {
+    title: course.title,
+    description: course.description,
+    alternates: { canonical: `/courses/${slug}/` },
+    openGraph: {
+      title: course.title,
+      description: course.description,
+      type: "website",
+      ...(ogImage ? { images: [{ url: ogImage }] } : {}),
+    },
+  };
 }
 
 export default async function CoursePage({ params }: Props) {

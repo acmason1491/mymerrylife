@@ -84,3 +84,5 @@ mymerrylife-next/
   - Dashboard shows real bookmark count and enrollment count
 - **Supabase schema**: 13 tables (profiles, posts, courses, lessons, comments, bookmarks, progress, enrollments, reviews, newsletters, contacts, categories, tags) with RLS policies
 - **Supabase migration**: `supabase/migrations/00001_init.sql` (300 lines, includes schema + RLS + triggers)
+- **SEO (2026-09-15)**: sitemap dead slugs removed; canonical on all indexable pages; OG images site-wide + per-post/per-course; stale covers deleted
+- ⏳ **PENDING (remind user)**: live site bundle embeds placeholder Supabase client — login/comments/bookmarks run on localStorage fallback only. Fix = rebuild with `NEXT_PUBLIC_SUPABASE_*` inlined (verify `.env.local` present at build time) and redeploy. User deferred redeploy; do NOT create test accounts without explicit approval.

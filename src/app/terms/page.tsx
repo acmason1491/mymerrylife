@@ -4,6 +4,7 @@ import { Breadcrumb } from "@/components/layout/breadcrumb";
 export const metadata: Metadata = {
   title: "服務條款",
   description: "My Merry Life 服務條款",
+  alternates: { canonical: "/terms/" },
 };
 
 export default function TermsPage() {

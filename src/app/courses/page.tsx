@@ -7,6 +7,7 @@ import { MOCK_COURSES } from "@/lib/mock-data";
 export const metadata: Metadata = {
   title: "課程列表 | My Merry Life",
   description: "從零開始學習 WordPress 網站架設",
+  alternates: { canonical: "/courses/" },
 };
 
 export default function CoursesPage() {

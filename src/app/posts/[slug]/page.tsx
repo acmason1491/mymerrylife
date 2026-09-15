@@ -8,6 +8,7 @@ import { BookmarkButton } from "@/components/shared/bookmark-button";
 import { CommentSection } from "@/components/shared/comment-section";
 import { Badge } from "@/components/ui/badge";
 import { formatDate, absoluteUrl } from "@/lib/utils";
+import { MOCK_POSTS } from "@/lib/mock-data";
 import makemoney_1Content from "./post-content/makemoney-1";
 import makemoney_2Content from "./post-content/makemoney-2";
 import avoid_fb_blockContent from "./post-content/avoid-fb-block";
@@ -955,7 +956,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = POSTS[slug];
   if (!post) return { title: "文章不存在" };
-  return { title: post.title, description: post.excerpt };
+  const cover = MOCK_POSTS.find((p) => p.slug === slug)?.coverImage;
+  const ogImage = cover?.startsWith("/mymerrylife") ? cover.slice("/mymerrylife".length) : cover;
+  return {
+    title: post.title,
+    description: post.excerpt,
+    alternates: { canonical: `/posts/${slug}/` },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: "article",
+      ...(ogImage ? { images: [{ url: ogImage }] } : {}),
+    },
+  };
 }
 
 export default async function PostPage({ params }: Props) {

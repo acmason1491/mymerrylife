@@ -5,6 +5,7 @@ import { organizationSchema } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "關於我們",
   description: "My Merry Life 是一個致力於幫助新手學習 WordPress 網站架設的免費教學平台",
+  alternates: { canonical: "/about/" },
 };
 
 export default function AboutPage() {
