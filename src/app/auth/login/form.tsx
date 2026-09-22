@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -20,6 +21,7 @@ type LoginData = z.infer<typeof loginSchema>;
 
 export function LoginForm() {
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
   const { addToast } = useToast();
   const { refresh } = useAuth();
   const { register, handleSubmit, formState: { errors } } = useForm<LoginData>({
@@ -32,7 +34,7 @@ export function LoginForm() {
     if (user) {
       await refresh();
       addToast("登入成功", "success");
-      window.location.href = "/dashboard";
+      router.push("/dashboard");
     } else {
       addToast(error || "登入失敗", "error");
     }
