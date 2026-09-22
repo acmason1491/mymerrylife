@@ -85,4 +85,4 @@ mymerrylife-next/
 - **Supabase schema**: 13 tables (profiles, posts, courses, lessons, comments, bookmarks, progress, enrollments, reviews, newsletters, contacts, categories, tags) with RLS policies
 - **Supabase migration**: `supabase/migrations/00001_init.sql` (300 lines, includes schema + RLS + triggers)
 - **SEO (2026-09-15)**: sitemap dead slugs removed; canonical on all indexable pages; OG images site-wide + per-post/per-course; stale covers deleted
-- ✅ **Supabase backend live (verified 2026-09-22)**: `.env.production` committed, Pages bundle inlines real endpoint, project restored; bad-credential login returns real `Invalid login credentials`, register validation works. No test accounts created.
+- ✅ **Supabase backend live (verified 2026-09-22)**: `.env.production` committed, Pages bundle inlines real endpoint, project restored, GRANTs applied, `seed-app-data.sql` loaded (34 posts / 4 courses / 61 lessons). Full loop verified live: register → email confirm → login → dashboard → comment write+persist → bookmark persist → logout, 0 console errors. No test accounts created.
