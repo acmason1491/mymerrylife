@@ -8,6 +8,7 @@ import { Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/toast";
+import { createClient } from "@/lib/supabase/client";
 
 const contactSchema = z.object({
   name: z.string().min(1, "請輸入姓名"),
@@ -28,12 +29,14 @@ export function ContactForm() {
   async function onSubmit(data: ContactFormData) {
     setLoading(true);
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+      const supabase = createClient();
+      const { error } = await supabase.from("contacts").insert({
+        name: data.name,
+        email: data.email,
+        subject: data.subject || null,
+        message: data.message,
       });
-      if (res.ok) {
+      if (!error) {
         addToast("訊息已送出，我們會盡快回覆您", "success");
         reset();
       } else {
