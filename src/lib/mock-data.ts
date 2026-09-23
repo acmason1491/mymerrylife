@@ -50,9 +50,6 @@ export const MOCK_COURSES: CourseListItem[] = [
 export const TAGS = [
   { name: "WordPress", slug: "wordpress" },
   { name: "入門", slug: "beginner" },
-  { name: "WooCommerce", slug: "woocommerce" },
-  { name: "購物網站", slug: "ecommerce" },
-  { name: "SEO", slug: "seo" },
   { name: "流量", slug: "traffic" },
   { name: "HTML", slug: "html" },
   { name: "前端", slug: "frontend" },
