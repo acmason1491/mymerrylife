@@ -10,8 +10,9 @@ interface LessonProgressProps {
 }
 
 export function LessonProgress({ courseSlug, lessonCount }: LessonProgressProps) {
-  const completed = useLessonProgress((s) => s.completedByCourse[courseSlug] ?? []);
+  const completedByCourse = useLessonProgress((s) => s.completedByCourse);
   const fetch = useLessonProgress((s) => s.fetch);
+  const completed = completedByCourse[courseSlug] ?? [];
 
   useEffect(() => {
     fetch(courseSlug);
@@ -42,10 +43,10 @@ interface LessonCheckboxProps {
 }
 
 export function LessonCheckbox({ courseSlug, lessonIndex, title }: LessonCheckboxProps) {
-  const completed = useLessonProgress((s) => s.completedByCourse[courseSlug] ?? []);
+  const completedByCourse = useLessonProgress((s) => s.completedByCourse);
   const fetch = useLessonProgress((s) => s.fetch);
   const toggle = useLessonProgress((s) => s.toggle);
-  const checked = completed.includes(lessonIndex);
+  const checked = (completedByCourse[courseSlug] ?? []).includes(lessonIndex);
 
   useEffect(() => {
     fetch(courseSlug);

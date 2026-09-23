@@ -11,11 +11,13 @@ interface LessonViewerProps {
 }
 
 export function LessonViewer({ lessons, content, courseSlug }: LessonViewerProps) {
-  const completed = useLessonProgress((s) => s.completedByCourse[courseSlug] ?? []);
-  const openLesson = useLessonProgress((s) => s.openByCourse[courseSlug] ?? null);
+  const completedByCourse = useLessonProgress((s) => s.completedByCourse);
+  const openByCourse = useLessonProgress((s) => s.openByCourse);
   const fetch = useLessonProgress((s) => s.fetch);
   const toggle = useLessonProgress((s) => s.toggle);
   const setOpen = useLessonProgress((s) => s.setOpen);
+  const completed = completedByCourse[courseSlug] ?? [];
+  const openLesson = openByCourse[courseSlug] ?? null;
 
   useEffect(() => {
     fetch(courseSlug);
