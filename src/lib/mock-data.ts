@@ -5,7 +5,6 @@ const IMG = (p: string) => assetPath(`/images/${p}`);
 const T = (name: string, slug: string) => ({ tag: { name, slug } });
 
 export const MOCK_POSTS: PostListItem[] = [
-  { id: "4", title: "SEO 基礎入門：讓你的文章被 Google 看見", slug: "seo-basics", excerpt: "了解搜尋引擎優化的核心概念，提升網站流量。", coverImage: IMG("posts/seo-basics.png"), publishedAt: "2026-05-28", readingTime: 7, author: { name: "管理員", image: null }, category: { name: "部落格經營", slug: "blogging" }, tags: [T("SEO", "seo"), T("流量", "traffic")] },
   { id: "5", title: "HTML 語意化標籤使用指南", slug: "html-semantic-tags", excerpt: "了解 HTML5 語意化標籤的正確使用方式，提升網站可讀性與 SEO。", coverImage: IMG("posts/html-semantic-tags.png"), publishedAt: "2026-05-20", readingTime: 6, author: { name: "管理員", image: null }, category: { name: "前端開發", slug: "frontend" }, tags: [T("HTML", "html"), T("前端", "frontend")] },
   { id: "6", title: "CSS Flexbox 完全攻略", slug: "css-flexbox-guide", excerpt: "從基礎到進階，徹底掌握 Flexbox 排版技巧。", coverImage: IMG("posts/css-flexbox-guide.png"), publishedAt: "2026-05-15", readingTime: 10, author: { name: "管理員", image: null }, category: { name: "前端開發", slug: "frontend" }, tags: [T("CSS", "css"), T("Flexbox", "flexbox")] },
   { id: "7", title: "JavaScript 基礎入門", slug: "javascript-basics", excerpt: "JavaScript 是網頁互動的核心，從變數開始學起。", coverImage: IMG("posts/javascript-basics.png"), publishedAt: "2026-05-10", readingTime: 15, author: { name: "管理員", image: null }, category: { name: "JavaScript", slug: "javascript" }, tags: [T("JavaScript", "javascript"), T("入門", "beginner")] },

@@ -21,19 +21,28 @@ interface TagGroup {
 
 const TAG_GROUPS: TagGroup[] = [
   { name: "WordPress 網站架設", description: "從網域、主機到 WordPress 安裝與設定，打造自己的網站", matchTags: ["WordPress", "WooCommerce", "購物網站"] },
-  { name: "部落格經營與 SEO", description: "讓更多人看見你的內容，提升網站流量與排名", matchTags: ["部落格", "SEO", "流量"] },
+  { name: "好用工具", description: "提升工作效率的必備工具與服務", matchTags: ["好用工具"] },
   { name: "網賺技巧", description: "網路賺錢方法與技巧分享", matchTags: ["網賺"] },
   { name: "前端開發", description: "網頁前端基礎：HTML、CSS、React 元件化開發", matchTags: ["HTML", "CSS", "Flexbox", "前端", "React"] },
   { name: "JavaScript", description: "JavaScript 程式語言從基礎到進階", matchTags: ["JavaScript", "DOM"] },
   { name: "後端開發", description: "Node.js、資料庫與 API 開發", matchTags: ["後端", "Node.js", "MySQL", "MongoDB", "API"] },
-  { name: "好用工具", description: "提升工作效率的必備工具與服務", matchTags: ["好用工具"] },
 ];
+
+// slug 指定歸類（優先於標籤比對）
+const SLUG_OVERRIDES: Record<string, string> = {
+  "start-profitable-blog": "WordPress 網站架設",
+};
 
 function groupPostsByTag() {
   const groups: Map<string, typeof MOCK_POSTS> = new Map();
   TAG_GROUPS.forEach((g) => groups.set(g.name, []));
 
   for (const post of MOCK_POSTS) {
+    const override = SLUG_OVERRIDES[post.slug];
+    if (override) {
+      groups.get(override)!.push(post);
+      continue;
+    }
     // 分類為好用工具的文章一律歸入好用工具（避免被 WordPress／部落格／流量等標籤帶走）
     if (post.category?.slug === "tools") {
       groups.get("好用工具")!.push(post);

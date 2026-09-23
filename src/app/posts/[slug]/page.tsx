@@ -32,12 +32,6 @@ interface Props { params: Promise<{ slug: string }> }
 
 const POSTS: Record<string, { title: string; excerpt: string; content: string; category: string; catSlug: string; publishedAt: string; tags?: string[] }> = {
 
-  "seo-basics": {
-    title: "SEO 基礎入門：讓你的文章被 Google 看見",
-    excerpt: "提升網站流量的核心技巧",
-    content: `<h2>什麼是 SEO？</h2><p>SEO（搜尋引擎優化）是一系列提升網站在搜尋引擎結果頁面排名的方法。好的 SEO 能為網站帶來持續穩定的免費流量。</p><h2>核心要素</h2><ul><li><strong>關鍵字研究</strong>：了解你的目標受眾在搜尋什麼</li><li><strong>內容品質</strong>：提供有價值、原創的內容</li><li><strong>技術 SEO</strong>：網站速度、行動裝置友善、結構化資料</li><li><strong>外部連結</strong>：獲得其他網站的推薦連結</li></ul><h2>實用工具</h2><p>Google Search Console、Google Analytics、Yoast SEO、Ahrefs、SEMrush</p>`,
-    category: "部落格經營", catSlug: "blogging", publishedAt: "2026-05-28", tags: ["SEO", "流量"],
-  },
   "html-semantic-tags": {
     title: "HTML 語意化標籤使用指南",
     excerpt: "提升網站可讀性與 SEO",
