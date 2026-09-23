@@ -47,7 +47,6 @@ export function Footer() {
           <div>
             <h4 className="mb-4 text-sm font-semibold text-slate-900">聯絡我們</h4>
             <ul className="space-y-2 text-sm text-slate-500">
-              <li>Email: {SITE_CONFIG.email}</li>
               <li>
                 <Link href="/contact" className="text-blue-600 hover:underline">
                   聯絡表單
