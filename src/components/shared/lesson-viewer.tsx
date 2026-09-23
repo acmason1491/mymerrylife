@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { ChevronDown, ChevronRight, FileText, CheckCircle, Circle } from "lucide-react";
-import { getProgress, toggleLesson } from "@/lib/storage";
+import { useLessonProgress } from "@/stores/lesson-progress";
 
 interface LessonViewerProps {
   lessons: { title: string; duration: number }[];
@@ -11,17 +11,15 @@ interface LessonViewerProps {
 }
 
 export function LessonViewer({ lessons, content, courseSlug }: LessonViewerProps) {
-  const [openLesson, setOpenLesson] = useState<number | null>(null);
-  const [completed, setCompleted] = useState<number[]>([]);
+  const completed = useLessonProgress((s) => s.completedByCourse[courseSlug] ?? []);
+  const openLesson = useLessonProgress((s) => s.openByCourse[courseSlug] ?? null);
+  const fetch = useLessonProgress((s) => s.fetch);
+  const toggle = useLessonProgress((s) => s.toggle);
+  const setOpen = useLessonProgress((s) => s.setOpen);
 
   useEffect(() => {
-    getProgress(courseSlug).then(setCompleted);
-  }, [courseSlug]);
-
-  const handleToggle = async (index: number) => {
-    const updated = await toggleLesson(courseSlug, index);
-    setCompleted(updated);
-  };
+    fetch(courseSlug);
+  }, [courseSlug, fetch]);
 
   return (
     <div className="space-y-3">
@@ -30,7 +28,7 @@ export function LessonViewer({ lessons, content, courseSlug }: LessonViewerProps
           <div className="flex w-full items-center gap-3 bg-white px-4 py-3 hover:bg-slate-50 transition-colors">
             <button
               type="button"
-              onClick={() => setOpenLesson(openLesson === i ? null : i)}
+              onClick={() => setOpen(courseSlug, openLesson === i ? null : i)}
               aria-expanded={openLesson === i}
               className="flex min-w-0 flex-1 items-center gap-3 text-left"
             >
@@ -47,7 +45,7 @@ export function LessonViewer({ lessons, content, courseSlug }: LessonViewerProps
             </button>
             <button
               type="button"
-              onClick={(e) => { e.stopPropagation(); handleToggle(i); }}
+              onClick={() => toggle(courseSlug, i)}
               aria-label={completed.includes(i) ? `標記${lesson.title}為未完成` : `標記${lesson.title}為已完成`}
               className="shrink-0 rounded-full"
             >

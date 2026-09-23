@@ -35,6 +35,9 @@ yarn-error.log*
 # committed on purpose: public anon key for GitHub Pages production build
 !.env.production
 
+# supabase CLI temp files
+supabase/.temp/
+
 # vercel
 .vercel
 

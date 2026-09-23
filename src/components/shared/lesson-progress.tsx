@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useEffect } from "react";
 import { CheckCircle, Circle } from "lucide-react";
-import { getProgress, toggleLesson } from "@/lib/storage";
+import { useLessonProgress } from "@/stores/lesson-progress";
 
 interface LessonProgressProps {
   courseSlug: string;
@@ -10,19 +10,12 @@ interface LessonProgressProps {
 }
 
 export function LessonProgress({ courseSlug, lessonCount }: LessonProgressProps) {
-  const [completed, setCompleted] = useState<number[]>([]);
+  const completed = useLessonProgress((s) => s.completedByCourse[courseSlug] ?? []);
+  const fetch = useLessonProgress((s) => s.fetch);
 
   useEffect(() => {
-    getProgress(courseSlug).then(setCompleted);
-  }, [courseSlug]);
-
-  const handleToggle = useCallback(
-    async (index: number) => {
-      const updated = await toggleLesson(courseSlug, index);
-      setCompleted([...updated]);
-    },
-    [courseSlug],
-  );
+    fetch(courseSlug);
+  }, [courseSlug, fetch]);
 
   const progress = lessonCount > 0 ? Math.round((completed.length / lessonCount) * 100) : 0;
 
@@ -49,20 +42,18 @@ interface LessonCheckboxProps {
 }
 
 export function LessonCheckbox({ courseSlug, lessonIndex, title }: LessonCheckboxProps) {
-  const [checked, setChecked] = useState(false);
+  const completed = useLessonProgress((s) => s.completedByCourse[courseSlug] ?? []);
+  const fetch = useLessonProgress((s) => s.fetch);
+  const toggle = useLessonProgress((s) => s.toggle);
+  const checked = completed.includes(lessonIndex);
 
   useEffect(() => {
-    getProgress(courseSlug).then((completed) => setChecked(completed.includes(lessonIndex)));
-  }, [courseSlug, lessonIndex]);
-
-  const handleToggle = useCallback(async () => {
-    const updated = await toggleLesson(courseSlug, lessonIndex);
-    setChecked(updated.includes(lessonIndex));
-  }, [courseSlug, lessonIndex]);
+    fetch(courseSlug);
+  }, [courseSlug, fetch]);
 
   return (
     <button
-      onClick={handleToggle}
+      onClick={() => toggle(courseSlug, lessonIndex)}
       className={`flex w-full cursor-pointer items-center gap-4 rounded-xl border p-4 text-left transition-all ${
         checked
           ? "border-emerald-200 bg-emerald-50"

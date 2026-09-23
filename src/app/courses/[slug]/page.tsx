@@ -3,10 +3,10 @@ import Link from "next/link";
 import { ArrowLeft, Clock, BookOpen, Star } from "lucide-react";
 import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { BookmarkButton } from "@/components/shared/bookmark-button";
 import { LessonProgress } from "@/components/shared/lesson-progress";
 import { LessonViewer } from "@/components/shared/lesson-viewer";
+import { StartLearningButton } from "@/components/shared/start-learning-button";
 import { formatDuration } from "@/lib/utils";
 import { MOCK_COURSES } from "@/lib/mock-data";
 import { LESSON_CONTENT } from "./lesson-content-registry";
@@ -91,7 +91,7 @@ export default async function CoursePage({ params }: Props) {
           <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-3 py-1 text-sm font-medium text-emerald-700 mb-3">
             <Star className="h-4 w-4" /> 完全免費
           </span>
-          <Button className="w-full gap-2" size="lg">立即開始學習</Button>
+          <StartLearningButton courseSlug={slug} lessonCount={course.lessons.length} />
           <div className="mt-4">
             <LessonProgress courseSlug={slug} lessonCount={course.lessons.length} />
           </div>
@@ -100,7 +100,7 @@ export default async function CoursePage({ params }: Props) {
           </div>
         </div>
       </div>
-      <div className="mt-16">
+      <div className="mt-16 scroll-mt-20" id="course-outline">
         <h2 className="text-2xl font-bold text-slate-900 mb-6">課程大綱</h2>
         <LessonViewer
           lessons={course.lessons}
