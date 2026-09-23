@@ -21,12 +21,11 @@ interface TagGroup {
 
 const TAG_GROUPS: TagGroup[] = [
   { name: "WordPress 網站架設", description: "從網域、主機到 WordPress 安裝與設定，打造自己的網站", matchTags: ["WordPress", "WooCommerce", "購物網站"] },
-  { name: "前端開發 (HTML/CSS)", description: "網頁前端基礎：HTML 結構與 CSS 樣式設計", matchTags: ["HTML", "CSS", "Flexbox", "前端"] },
-  { name: "JavaScript", description: "JavaScript 程式語言從基礎到進階", matchTags: ["JavaScript", "DOM"] },
-  { name: "React", description: "React 元件化開發與現代前端框架", matchTags: ["React"] },
-  { name: "後端開發", description: "Node.js、資料庫與 API 開發", matchTags: ["後端", "Node.js", "MySQL", "MongoDB", "API"] },
   { name: "部落格經營與 SEO", description: "讓更多人看見你的內容，提升網站流量與排名", matchTags: ["部落格", "SEO", "流量"] },
   { name: "網賺技巧", description: "網路賺錢方法與技巧分享", matchTags: ["網賺"] },
+  { name: "前端開發", description: "網頁前端基礎：HTML、CSS、React 元件化開發", matchTags: ["HTML", "CSS", "Flexbox", "前端", "React"] },
+  { name: "JavaScript", description: "JavaScript 程式語言從基礎到進階", matchTags: ["JavaScript", "DOM"] },
+  { name: "後端開發", description: "Node.js、資料庫與 API 開發", matchTags: ["後端", "Node.js", "MySQL", "MongoDB", "API"] },
   { name: "好用工具", description: "提升工作效率的必備工具與服務", matchTags: ["好用工具"] },
 ];
 
@@ -35,6 +34,11 @@ function groupPostsByTag() {
   TAG_GROUPS.forEach((g) => groups.set(g.name, []));
 
   for (const post of MOCK_POSTS) {
+    // 分類為好用工具的文章一律歸入好用工具（避免被 WordPress／部落格／流量等標籤帶走）
+    if (post.category?.slug === "tools") {
+      groups.get("好用工具")!.push(post);
+      continue;
+    }
     let assigned = false;
     for (const group of TAG_GROUPS) {
       if (post.tags?.some((t) => group.matchTags.includes(t.tag.name))) {
