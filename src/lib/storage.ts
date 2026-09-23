@@ -171,12 +171,13 @@ export async function toggleLesson(courseSlug: string, lessonIndex: number): Pro
     if (user) {
       const { data: course } = await supabase.from("courses").select("id").eq("slug", courseSlug).maybeSingle();
       if (course) {
-        const { data: lesson } = await supabase
+        // 注意：不能用 .eq("order", ...) 查——order 是 PostgREST 保留字會被當排序參數（400）
+        // 先取該課程全部單元再比對 order
+        const { data: lessons } = await supabase
           .from("lessons")
-          .select("id")
-          .eq("course_id", course.id)
-          .eq("order", lessonIndex)
-          .maybeSingle();
+          .select("id, order")
+          .eq("course_id", course.id);
+        const lesson = lessons?.find((l) => l.order === lessonIndex);
         if (lesson) {
           const existing = await supabase
             .from("progress")
