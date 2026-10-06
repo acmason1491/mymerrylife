@@ -1,7 +1,18 @@
 # My Merry Life — Hostinger (Apache/LiteSpeed) 301 redirects
 # WordPress 舊網址 -> 新站網址，保住 Google 排名
 
+DirectoryIndex index.html
 ErrorDocument 404 /404.html
+
+# 靜態站快取策略：HTML 不快取，資源檔長快取
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|xml|txt|json)$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+  <FilesMatch "\.(css|js|png|jpg|jpeg|gif|svg|webp|ico|woff2?|mp4|pdf)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
 
 # RSS feed
 RedirectMatch 301 ^/feed/?$ /rss.xml
