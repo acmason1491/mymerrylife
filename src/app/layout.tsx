@@ -57,7 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body className="min-h-screen bg-white font-sans text-slate-900 antialiased">
+      <body className="min-h-screen bg-amber-50 font-sans text-slate-900 antialiased">
         <ToastProvider>
           <AuthProvider>
           <Header />

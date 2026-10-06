@@ -5,7 +5,7 @@ import { assetPath } from "@/lib/utils";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 to-white">
+    <section className="relative overflow-hidden bg-gradient-to-b from-orange-100 via-orange-50 to-amber-50">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:py-28 lg:py-36">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div className="max-w-xl">
