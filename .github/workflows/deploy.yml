@@ -25,6 +25,10 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+        env:
+          NEXT_PUBLIC_BASE_PATH: /mymerrylife
+          NEXT_PUBLIC_SITE_URL: https://acmason1491.github.io/mymerrylife
+          NEXT_PUBLIC_BASE_URL: https://acmason1491.github.io/mymerrylife
       - uses: actions/configure-pages@v4
         with:
           static_site_generator: next

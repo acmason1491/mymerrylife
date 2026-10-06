@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   },
   description: "從零開始學習如何自行架設網站，免費 WordPress 教學，新手快速入門。包含個人部落格、公司官網、購物商店與線上課程平台。",
   keywords: ["WordPress教學", "網站架設", "免費教學", "部落格架設", "購物網站", "線上課程"],
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://acmason1491.github.io/mymerrylife"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://mymerrylife.com"),
   openGraph: {
     type: "website",
     locale: "zh_TW",

@@ -1,7 +1,7 @@
 export const SITE_CONFIG = {
   name: "My Merry Life",
   description: "免費 WordPress 網站架設教學平台 — 從零開始學習，建立屬於自己的網站、部落格、購物商店與線上課程",
-  url: process.env.NEXT_PUBLIC_BASE_URL || "https://acmason1491.github.io/mymerrylife",
+  url: process.env.NEXT_PUBLIC_BASE_URL || "https://mymerrylife.com",
   ogImage: "/images/og-default.jpg",
   email: "hello@mymerrylife.com",
   social: {

@@ -34,12 +34,12 @@ export function truncate(text: string, length: number): string {
 }
 
 export function absoluteUrl(path: string): string {
-  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://acmason1491.github.io/mymerrylife";
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://mymerrylife.com";
   return `${base}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
 export function assetPath(path: string): string {
-  const basePath = "/mymerrylife";
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   return `${basePath}${path.startsWith("/") ? path : `/${path}`}`;
 }
 

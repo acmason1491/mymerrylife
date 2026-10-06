@@ -60,6 +60,11 @@ mymerrylife-next/
 └── next.config.ts                # Static export config (basePath: /mymerrylife)
 ```
 
+## Deploy Targets (2026-10-06)
+
+- **Hostinger (正式站 https://mymerrylife.com)**: domain-root 部署。本地 `npm run build`（不設 env，預設 `NEXT_PUBLIC_BASE_PATH=""`、`SITE_URL=https://mymerrylife.com`），上傳 `out/` 到 `public_html`。`public/.htaccess` 會自動帶入 `out/`（27 條舊 WP 文章 301＋`/feed`→`/rss.xml`＋自訂 404）。
+- **GitHub Pages (測試站)**: `deploy.yml` 會帶 `NEXT_PUBLIC_BASE_PATH=/mymerrylife`＋github.io 網址自動建置，不需手動處理。
+
 ## Build Status
 
 ✅ Build passes with `npm run build` — **83 pages** generated as static HTML.
