@@ -7,7 +7,7 @@ import { BookmarkButton } from "@/components/shared/bookmark-button";
 import { LessonProgress } from "@/components/shared/lesson-progress";
 import { LessonViewer } from "@/components/shared/lesson-viewer";
 import { StartLearningButton } from "@/components/shared/start-learning-button";
-import { formatDuration } from "@/lib/utils";
+import { formatDuration, normalizeContentAssetPaths } from "@/lib/utils";
 import { MOCK_COURSES } from "@/lib/mock-data";
 import { LESSON_CONTENT } from "./lesson-content-registry";
 
@@ -104,7 +104,7 @@ export default async function CoursePage({ params }: Props) {
         <h2 className="text-2xl font-bold text-slate-900 mb-6">課程大綱</h2>
         <LessonViewer
           lessons={course.lessons}
-          content={LESSON_CONTENT[slug] || []}
+          content={(LESSON_CONTENT[slug] || []).map((lessonContent) => normalizeContentAssetPaths(lessonContent))}
           courseSlug={slug}
         />
       </div>

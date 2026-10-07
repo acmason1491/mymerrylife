@@ -7,7 +7,7 @@ import { ShareButtons } from "@/components/shared/share-buttons";
 import { BookmarkButton } from "@/components/shared/bookmark-button";
 import { CommentSection } from "@/components/shared/comment-section";
 import { Badge } from "@/components/ui/badge";
-import { formatDate, absoluteUrl } from "@/lib/utils";
+import { formatDate, absoluteUrl, normalizeContentAssetPaths } from "@/lib/utils";
 import { MOCK_POSTS } from "@/lib/mock-data";
 import makemoney_1Content from "./post-content/makemoney-1";
 import makemoney_2Content from "./post-content/makemoney-2";
@@ -996,7 +996,7 @@ export default async function PostPage({ params }: Props) {
             <span className="flex items-center gap-1.5"><Clock className="h-4 w-4" />{Math.ceil(post.content.length / 300)} 分鐘閱讀</span>
           </div>
         </header>
-        <div className="prose-custom" dangerouslySetInnerHTML={{ __html: post.content }} />
+        <div className="prose-custom" dangerouslySetInnerHTML={{ __html: normalizeContentAssetPaths(post.content, slug) }} />
         <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-slate-100 pt-6">
           <Link href="/posts" className="flex items-center gap-2 text-sm text-slate-500 hover:text-slate-700">
             <ArrowLeft className="h-4 w-4" /> 返回文章列表
