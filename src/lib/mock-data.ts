@@ -41,10 +41,10 @@ export const MOCK_POSTS: PostListItem[] = [
 ];
 
 export const MOCK_COURSES: CourseListItem[] = [
-  { id: "c1", title: "個人部落格架設", slug: "blog-setup", description: "從零開始建立自己的 WordPress 部落格", excerpt: "不需要任何程式背景，跟著步驟就能完成", coverImage: IMG("courses/blog-setup.png"), price: 0, level: "BEGINNER", duration: 120, lessonCount: 9, category: { name: "WordPress 教學", slug: "wordpress" } },
-  { id: "c2", title: "公司官方網站架設", slug: "company-website", description: "為您的企業打造專業的公司網站", excerpt: "節省高額設計費用，自己動手做", coverImage: IMG("courses/company-website.png"), price: 0, level: "BEGINNER", duration: 150, lessonCount: 9, category: { name: "WordPress 教學", slug: "wordpress" } },
-  { id: "c3", title: "WordPress 購物網站教學", slug: "ecommerce-setup", description: "建立屬於自己的網路商店", excerpt: "WooCommerce 完整教學，從安裝到上線", coverImage: IMG("courses/ecommerce-setup.png"), price: 0, level: "INTERMEDIATE", duration: 240, lessonCount: 18, category: { name: "WordPress 教學", slug: "wordpress" } },
-  { id: "c4", title: "線上課程平台打造", slug: "online-course-platform", description: "建立可銷售的線上課程平台", excerpt: "Thrive Apprentice + WooCommerce 完整整合", coverImage: IMG("courses/online-course-platform.png"), price: 0, level: "INTERMEDIATE", duration: 360, lessonCount: 25, category: { name: "WordPress 教學", slug: "wordpress" } },
+  { id: "c1", title: "個人部落格架設", slug: "blog-setup", description: "從零開始建立自己的 WordPress 部落格", excerpt: "不需要任何程式背景，跟著步驟就能完成", coverImage: IMG("courses/wp-original/course-module-1.png"), price: 0, level: "BEGINNER", duration: 120, lessonCount: 9, category: { name: "WordPress 教學", slug: "wordpress" } },
+  { id: "c2", title: "公司官方網站架設", slug: "company-website", description: "為您的企業打造專業的公司網站", excerpt: "節省高額設計費用，自己動手做", coverImage: IMG("courses/wp-original/course-module-2.png"), price: 0, level: "BEGINNER", duration: 150, lessonCount: 9, category: { name: "WordPress 教學", slug: "wordpress" } },
+  { id: "c3", title: "WordPress 購物網站教學", slug: "ecommerce-setup", description: "建立屬於自己的網路商店", excerpt: "WooCommerce 完整教學，從安裝到上線", coverImage: IMG("courses/wp-original/course-module-3.png"), price: 0, level: "INTERMEDIATE", duration: 240, lessonCount: 18, category: { name: "WordPress 教學", slug: "wordpress" } },
+  { id: "c4", title: "線上課程平台打造", slug: "online-course-platform", description: "建立可銷售的線上課程平台", excerpt: "Thrive Apprentice + WooCommerce 完整整合", coverImage: IMG("courses/wp-original/course-module-4.png"), price: 0, level: "INTERMEDIATE", duration: 360, lessonCount: 25, category: { name: "WordPress 教學", slug: "wordpress" } },
 ];
 
 export const TAGS = [
