@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
+import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { ReadingProgress } from "@/components/layout/reading-progress";
 import { ShareButtons } from "@/components/shared/share-buttons";
 import { BookmarkButton } from "@/components/shared/bookmark-button";
 import { CommentSection } from "@/components/shared/comment-section";
 import { Badge } from "@/components/ui/badge";
-import { formatDate, absoluteUrl, normalizeContentAssetPaths } from "@/lib/utils";
+import { formatDate, absoluteUrl, normalizeContentAssetPaths, normalizeContentLinks } from "@/lib/utils";
 import { MOCK_POSTS } from "@/lib/mock-data";
 import makemoney_1Content from "./post-content/makemoney-1";
 import makemoney_2Content from "./post-content/makemoney-2";
@@ -836,19 +836,19 @@ const POSTS: Record<string, { title: string; excerpt: string; content: string; c
     title: "網賺初學者快速入門法-文章點擊賺錢方法 – 1 (Facebook)",
     excerpt: "最簡單、容易上手的在家用網路賺錢方法",
     content: makemoney_1Content,
-    category: "網賺技巧", catSlug: "makemoney", publishedAt: "2026-07-10",
+    category: "網賺技巧", catSlug: "make-money", publishedAt: "2026-07-10",
   },
   "makemoney-2": {
     title: "網賺初學者快速入門法-文章點擊賺錢方法 – 2 (Facebook)",
     excerpt: "進階Facebook文章點擊賺錢技巧",
     content: makemoney_2Content,
-    category: "網賺技巧", catSlug: "makemoney", publishedAt: "2026-07-10",
+    category: "網賺技巧", catSlug: "make-money", publishedAt: "2026-07-10",
   },
   "avoid-fb-block": {
     title: "分身帳號常被FB封鎖、停用嗎? – 如何避免被FB封鎖帳號!!",
     excerpt: "教你如何避免Facebook分身帳號被封鎖",
     content: avoid_fb_blockContent,
-    category: "網賺技巧", catSlug: "makemoney", publishedAt: "2026-07-10",
+    category: "網賺技巧", catSlug: "make-money", publishedAt: "2026-07-10",
   },
   "hitleap-intro": {
     title: "如何增加網站流量? – 免費、簡單、好用的全自動軟體介紹(Hitleap)",
@@ -996,7 +996,7 @@ export default async function PostPage({ params }: Props) {
             <span className="flex items-center gap-1.5"><Clock className="h-4 w-4" />{Math.ceil(post.content.length / 300)} 分鐘閱讀</span>
           </div>
         </header>
-        <div className="prose-custom" dangerouslySetInnerHTML={{ __html: normalizeContentAssetPaths(post.content, slug) }} />
+        <div className="prose-custom" dangerouslySetInnerHTML={{ __html: normalizeContentLinks(normalizeContentAssetPaths(post.content, slug), slug) }} />
         <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-slate-100 pt-6">
           <Link href="/posts" className="flex items-center gap-2 text-sm text-slate-500 hover:text-slate-700">
             <ArrowLeft className="h-4 w-4" /> 返回文章列表

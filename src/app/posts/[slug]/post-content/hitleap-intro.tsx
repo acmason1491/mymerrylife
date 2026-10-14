@@ -17,10 +17,10 @@ const content = `<div id="tve_flt" class="tve_flt tcb-style-wrap"><div id="tve_e
 </div></div>
 </div></div><div class="thrive-group-edit-config" style="display: none !important"></div><div class="thrive-local-colors-config" style="display: none !important"></div></div><div class="thrv_wrapper tve_wp_shortcode"><div class="tve_shortcode_raw" style="display: none"></div><div class="tve_shortcode_rendered"><h3>Hitleap 是一個提供流量交換的平台(traffic exchange service)，藉由此免費的平台可以讓你在短短幾分鐘內增加網站、部落客(Blog)或 Youtube 的訪問人數、進而可以增加 Google對該網站、網頁搜尋的排名。</h3>
 <p>&nbsp;</p>
-<h2><strong>第一步: 到HitLeap免費註冊成為會員</strong></h2>
+<h2><strong>第一步: 到 BIGHITS4U 免費註冊成為會員</strong></h2>
 <p>&nbsp;</p>
-<p style="text-align: center;"><a href="https://hitleap.com/by/masonhou" target="_blank" rel="noopener">點擊免費註冊</a></p>
-<p style="text-align: center;"><a href="https://hitleap.com/by/masonhou" target="_blank" rel="noopener">https://hitleap.com/</a></p>
+<p style="text-align: center;"><a href="https://hitleap.com/by/masonhou" target="_blank" rel="noopener">點擊前往 BIGHITS4U 註冊</a></p>
+<p style="text-align: center;"><a href="https://hitleap.com/by/masonhou" target="_blank" rel="noopener">https://bighits4u.com/</a></p>
 <p><a href="https://hitleap.com/by/masonhou"><img loading="lazy" decoding="async" class="alignnone size-medium wp-image-455 aligncenter" src="/mymerrylife/images/articles/want7451-1-300x209.jpg" alt="" srcset="/mymerrylife/images/articles/want7451-1-300x209.jpg 300w, /mymerrylife/images/articles/want7451-1.jpg 380w" sizes="auto, (max-width: 300px) 100vw, 300px" / /></a></p>
 <h3>點擊後來到此畫面:</h3>
 <p><img loading="lazy" decoding="async" class="aligncenter wp-image-456 size-full" src="/mymerrylife/images/articles/%E8%9E%A2%E5%B9%95%E6%88%AA%E5%9C%96-2018-01-10-13.09.57.png" alt="" srcset="/mymerrylife/images/articles/%E8%9E%A2%E5%B9%95%E6%88%AA%E5%9C%96-2018-01-10-13.09.57.png 1280w, /mymerrylife/images/articles/%E8%9E%A2%E5%B9%95%E6%88%AA%E5%9C%96-2018-01-10-13.09.57-600x480.png 600w, /mymerrylife/images/articles/%E8%9E%A2%E5%B9%95%E6%88%AA%E5%9C%96-2018-01-10-13.09.57-300x240.png 300w, /mymerrylife/images/articles/%E8%9E%A2%E5%B9%95%E6%88%AA%E5%9C%96-2018-01-10-13.09.57-768x614.png 768w, /mymerrylife/images/articles/%E8%9E%A2%E5%B9%95%E6%88%AA%E5%9C%96-2018-01-10-13.09.57-1024x819.png 1024w" sizes="auto, (max-width: 1280px) 100vw, 1280px" / /></p>
