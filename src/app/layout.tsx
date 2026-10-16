@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
+import { SITE_CONFIG } from "@/lib/constants";
 import { ToastProvider } from "@/components/ui/toast";
 import { AuthProvider } from "@/context/auth-context";
 import { Header } from "@/components/layout/header";
@@ -59,7 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "@context": "https://schema.org",
               "@type": "WebSite",
               name: "My Merry Life",
-              url: "https://acmason1491.github.io/mymerrylife",
+              url: SITE_CONFIG.url,
             }),
           }}
         />

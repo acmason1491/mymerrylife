@@ -108,7 +108,9 @@ const report = {
   unique_links_checked: links.length,
   status_counts: counts,
   broken_links: links.filter((link) => link.status === 404),
-  blocked_or_unverified: links.filter((link) => link.status === "error" || link.status === 401 || link.status === 403),
+  blocked_or_unverified: links.filter(
+    (link) => link.status === "error" || (typeof link.status === "number" && link.status >= 400),
+  ),
 };
 
 console.log(JSON.stringify(report, null, 2));
