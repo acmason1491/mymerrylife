@@ -89,6 +89,7 @@ mymerrylife-next/
   - Dashboard shows real bookmark count and enrollment count
 - **Supabase schema**: 13 tables (profiles, posts, courses, lessons, comments, bookmarks, progress, enrollments, reviews, newsletters, contacts, categories, tags) with RLS policies
 - **Supabase migration**: `supabase/migrations/00001_init.sql` (300 lines, includes schema + RLS + triggers)
+- **Supabase grants**: `supabase/migrations/00002_grants.sql` — explicit `GRANT`s + `alter default privileges` for Data API access. Required because Supabase stopped auto-granting new public tables on 2026-10-30; any future table must still get a `GRANT` in its own migration.
 - **SEO (2026-09-15)**: sitemap dead slugs removed; canonical on all indexable pages; OG images site-wide + per-post/per-course; stale covers deleted
 - ✅ **Supabase backend live (verified 2026-09-22)**: `.env.production` committed, Pages bundle inlines real endpoint, project restored, GRANTs applied, `seed-app-data.sql` loaded (34 posts / 4 courses / 61 lessons). Full loop verified live: register → email confirm → login → dashboard → comment write+persist → bookmark persist → logout → contact form writes to `contacts` (201), 0 console errors. No test accounts created.
 - ✅ **Comment email alerts (verified 2026-09-28)**: `notify-comment` edge function + `comments_notify` trigger; test comment produced email + invocation log. Test rows pending user cleanup via Table Editor.
